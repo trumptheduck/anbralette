@@ -1,0 +1,26 @@
+<section class="drawer" [ngClass]="{'drawer--visible':isDrawerOpened}">
+    <div class="drawer__signin">
+        <mat-icon>person</mat-icon>Đăng nhập
+    </div>
+    <div class="drawer__signup">
+        <mat-icon>how_to_reg</mat-icon>Đăng ký
+    </div><br>
+    <div class="drawer__menu">
+        <p class="drawer__menu__item">+ NEW</p>
+        <p class="drawer__menu__item">+ HỒNG THƠ NGÂY</p>
+        <p class="drawer__menu__item">+ ĐEN HUYỀN BÍ</p>
+        <p class="drawer__menu__item">+ TRẮNG TINH KHÔI</p>
+        <p class="drawer__menu__item">+ NỔI BẬT</p>
+        <p class="drawer__menu__item">+ Góc EVA</p>
+    </div>
+</section>
+<section class="header" [ngClass]="{'header--transparent':isTopped}">
+    <div class="header__menu" (click)="toggleDrawer()">
+        <div class="header__menu__bar"></div>
+        <div class="header__menu__bar header__menu__bar--short"></div>
+        <div class="header__menu__bar"></div>
+    </div>
+    <img src="../../../assets/images/brand.png" class="header__logo">
+    <img src="../../../assets/vectors/search.svg" class="header__search">
+</section>
+

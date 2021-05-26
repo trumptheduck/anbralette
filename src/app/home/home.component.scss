@@ -1,0 +1,196 @@
+.banner {
+    width: 100%;
+    height: auto;
+}
+.motto {
+    font-family: CocoGothic;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    user-select: none;
+
+    &__image {
+        width: 100px;
+    }
+    &__title {
+        font-size: 20px;
+    }
+    &__inner {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+
+        &__measure {
+            width: 149px;
+            height: 39px;
+            margin: 10px;
+            color: black;
+            border-color: white;
+            border: black 1px solid;
+            line-height: 36px;
+            text-align: center;
+        }
+        &__buy {
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+            color: white;
+            background-color: black;
+            line-height: 36px;
+            text-align: center;
+        }
+    }
+}
+.policy {
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    &__inner {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        &__item {
+            width: 40vw;
+            height: 40vw;
+            border-radius: 10px;
+            border: solid black 1px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            & mat-icon {
+                padding-bottom: 7px;
+            }
+
+            & p{
+                text-align: center;
+            }
+            & a {text-decoration: none; color: grey;}
+        }
+    }
+
+}
+.weekly {
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__title {
+        margin-left: 5px;
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    &__swiper {
+
+        &__item {
+            width: 100%;
+            height: 350px;
+
+            &__image {
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 260px;
+            }
+            &__desc {
+                position: absolute;
+                bottom: 0%;
+                left: 0%;
+                width: 100%;
+                height: 80px;
+                
+
+                &__name {
+                    margin-left: 5px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-size: 15px;
+                }
+                &__price {
+                    padding-top: 8px;
+                    margin-left: 5px;
+                    font-weight: bold;
+                    color: red;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+.flashsale, .collection {
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__title {
+        margin-left: 5px;
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    &__inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1px;
+        &__item {
+            position: relative;
+            width: 100%;
+            height: 350px;
+
+            &__image {
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 260px;
+            }
+            &__desc {
+                position: absolute;
+                bottom: 0%;
+                left: 0%;
+                width: 100%;
+                height: 80px;
+                
+
+                &__name {
+                    margin-left: 5px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-size: 15px;
+                }
+                &__price {
+                    padding-top: 8px;
+                    margin-left: 5px;
+                    font-weight: bold;
+                    color: red;
+                    font-size: 16px;
+                }
+            }
+        }  
+    }
+}
