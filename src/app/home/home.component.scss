@@ -1,5 +1,6 @@
 .banner {
-    width: 100%;
+    position: relative;
+    width: 100.5%;
     height: auto;
 }
 .motto {
@@ -91,6 +92,8 @@
 
 }
 .weekly {
+    z-index: 1;
+    position: relative;
     font-family: CocoGothic;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -102,8 +105,11 @@
         padding-bottom: 5px;
     }
     &__swiper {
+        position: relative;
 
         &__item {
+            position: relative;
+            z-index: 1;
             width: 100%;
             height: 350px;
 

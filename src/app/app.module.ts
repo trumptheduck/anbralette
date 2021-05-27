@@ -11,6 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon'
 import {MatRippleModule} from '@angular/material/core';
 import { SwiperModule } from 'swiper/angular';
+import { OverlayComponent } from './home/overlay/overlay.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { DisplayComponent } from './display/display.component';
+
+
 
 
 
@@ -20,7 +26,9 @@ import { SwiperModule } from 'swiper/angular';
     LayoutComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    OverlayComponent,
+    DisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +37,11 @@ import { SwiperModule } from 'swiper/angular';
     MatIconModule,
     MatRippleModule,
     SwiperModule,
+    MatBadgeModule,
+    MatExpansionModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
