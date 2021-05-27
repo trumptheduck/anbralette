@@ -28,227 +28,44 @@
       [slidesPerView]="2"
       [spaceBetween]="1"
     >
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model1.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
+        <ng-template *ngFor="let item of itemArray" swiperSlide>
+            <a routerLink="/display" [queryParams]="{id: item.item_id}">
+                <div class="weekly__swiper__item">
+                    <img [src]="back + item.images[0]" class="weekly__swiper__item__image">
+                    <div class="weekly__swiper__item__desc">
+                        <p class="weekly__swiper__item__desc__name">{{item.name}}</p>
+                        <p class="weekly__swiper__item__desc__price">{{item.price | currency_pipe}}</p>
+                    </div>
                 </div>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model2.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model1.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model2.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model1.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model2.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model1.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="weekly__swiper__item">
-                <img src="../../assets/images/model2.jpg" class="weekly__swiper__item__image">
-                <div class="weekly__swiper__item__desc">
-                    <p class="weekly__swiper__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                    <p class="weekly__swiper__item__desc__price">345,000 VNĐ</p>
-                </div>
-            </div>
+            </a>
         </ng-template>
     </swiper>
 </section>
 <section class="flashsale">
     <p class="flashsale__title">FLASHSALE</p>
     <div class="flashsale__inner">
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model1.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model2.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model2.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model1.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model1.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model2.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model2.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model1.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model1.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model2.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model2.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="flashsale__inner__item">
-            <img src="../../assets/images/model1.jpg" class="flashsale__inner__item__image">
-            <div class="flashsale__inner__item__desc">
-                <p class="flashsale__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="flashsale__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
+        <div *ngFor="let item of itemArray" class="flashsale__inner__item">
+            <a routerLink="/display" [queryParams]="{id: item.item_id}">
+                <img [src]="back + item.images[0]" class="flashsale__inner__item__image">
+                <div class="flashsale__inner__item__desc">
+                    <p class="flashsale__inner__item__desc__name">{{item.name}}</p>
+                    <p class="flashsale__inner__item__desc__price">{{item.price | currency_pipe}}</p>
+                </div>
+            </a>
         </div>
     </div>
 </section>
 <section class="collection">
     <p class="collection__title">BỘ SƯU TẬP</p>
     <div class="collection__inner">
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model1.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model2.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model2.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model1.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model1.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model2.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model2.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
-        </div>
-        <div class="collection__inner__item">
-            <img src="../../assets/images/model2.jpg" class="collection__inner__item__image">
-            <div class="collection__inner__item__desc">
-                <p class="collection__inner__item__desc__name">Áo Corset Ren Đen Quả Chéo</p>
-                <p class="collection__inner__item__desc__price">345,000 VNĐ</p>
-            </div>
+        <div *ngFor="let item of itemArray" class="collection__inner__item">
+            <a routerLink="/display" [queryParams]="{id: item.item_id}">
+                <img [src]="back + item.images[0]" class="collection__inner__item__image">
+                <div class="collection__inner__item__desc">
+                    <p class="collection__inner__item__desc__name">{{item.name}}</p>
+                    <p class="collection__inner__item__desc__price">{{item.price | currency_pipe}}</p>
+                </div>
+            </a>
         </div>
     </div>
 </section>

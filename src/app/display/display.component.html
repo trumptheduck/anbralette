@@ -1,1 +1,109 @@
-<p>display works!</p>
+<swiper class="images"
+      [slidesPerView]="1"
+      [spaceBetween]="1"
+      [pagination]="{
+        clickable: true
+      }"
+      [direction]="'vertical'"
+    >
+    <ng-template *ngFor="let images of itemData.images" swiperSlide>
+        <img [src]="back + images" class="images__slide">
+    </ng-template>
+</swiper>
+<section class="addtocart cdk-overlay-pane">
+    <mat-icon>add_shopping_cart</mat-icon>
+</section>
+<section class="description">
+    <p class="description__name">Bộ Đồ Lót Đệm Mỏng Không Gọng Thoải Mái 1803</p>
+    <p class="description__price">490,000 VND</p>
+    <div class="description__sizes">
+        <p class="description__sizes__title">Sizes:</p> 
+        <div class="description__sizes__size">S</div>
+        <div class="description__sizes__size">M</div>
+        <div class="description__sizes__size">XL</div>
+    </div>
+</section>
+<section class="details">
+    <mat-tab-group class="details__tabs" mat-stretch-tabs [backgroundColor]="'primary'">
+        <mat-tab label="Mô tả">
+            <div class="details__tabs__tab">
+                Mô tả: 
+                <br>
+                - Sản phẩm phân phối của Venus Charm với set bộ không tách lẻ. 
+                <br>
+                - Dòng áo đệm mỏng nhẹ ôm ngực nhẹ nhàng tự nhiên 
+                <br>
+                - Sản phẩm không gọng thoải mái , không đau chân ngực 
+                <br>
+                - Quần chất gân đúc nhẹ nhàng, thoáng mát có giãn thoải mái 
+                <br>
+                * Màu sắc: đen - đỏ - trắng kem - xanh 
+                <br>
+                * Size: 34/75 - 36/80 
+            </div>
+        </mat-tab>
+        <mat-tab class="details__tabs__tab" label="Phí ship">
+            <div class="details__tabs__tab">
+                Mô tả: 
+                <br>
+                - Sản phẩm phân phối của Venus Charm với set bộ không tách lẻ. 
+                <br>
+                - Dòng áo đệm mỏng nhẹ ôm ngực nhẹ nhàng tự nhiên 
+                <br>
+                - Sản phẩm không gọng thoải mái , không đau chân ngực 
+                <br>
+                - Quần chất gân đúc nhẹ nhàng, thoáng mát có giãn thoải mái 
+                <br>
+                * Màu sắc: đen - đỏ - trắng kem - xanh 
+                <br>
+                * Size: 34/75 - 36/80 
+            </div>
+        </mat-tab>
+        <mat-tab class="details__tabs__tab" label="Đổi trả">
+            <div class="details__tabs__tab">
+                Mô tả: 
+                <br>
+                - Sản phẩm phân phối của Venus Charm với set bộ không tách lẻ. 
+                <br>
+                - Dòng áo đệm mỏng nhẹ ôm ngực nhẹ nhàng tự nhiên 
+                <br>
+                - Sản phẩm không gọng thoải mái , không đau chân ngực 
+                <br>
+                - Quần chất gân đúc nhẹ nhàng, thoáng mát có giãn thoải mái 
+                <br>
+                * Màu sắc: đen - đỏ - trắng kem - xanh 
+                <br>
+                * Size: 34/75 - 36/80 
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</section>
+<section class="callback">
+    <p class="callback__title">CẦN TƯ VẤN?</p>
+    <input placeholder="Số điện thoại" type="text" class="callback__input">
+    <div class="callback__submit">GỌI LẠI CHO TÔI</div>
+</section>
+<section class="reviews">
+    <p class="reviews__title">ĐÁNH GIÁ</p>
+    <div class="reviews__inner">
+        <p class="reviews__inner__null">0 Reviews</p>
+    </div>
+</section>
+<section class="buynow">
+    <div class="buynow__inner">ĐẶT MUA</div>
+</section>
+<section class="recommendations">
+    <p class="recommendations__title">CÓ THỂ BẠN QUAN TÂM</p>
+    <div class="recommendations__inner">
+        <div *ngFor="let item of itemArray" class="recommendations__inner__item">
+            <a (click)="reload$.gotoAndReload('/display',{id: item.item_id})">
+                <img [src]="back + item.images[0]" class="recommendations__inner__item__image">
+                <div class="recommendations__inner__item__desc">
+                    <p class="recommendations__inner__item__desc__name">{{item.name}}</p>
+                    <p class="recommendations__inner__item__desc__price">{{item.price | currency_pipe}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+

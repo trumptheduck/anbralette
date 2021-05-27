@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { OverlayComponent } from './home/overlay/overlay.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DisplayComponent } from './display/display.component';
+import { CurrencyCustomPipe } from './core/pipes/currency.pipe';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -29,6 +32,8 @@ import { DisplayComponent } from './display/display.component';
     FooterComponent,
     OverlayComponent,
     DisplayComponent,
+    CurrencyCustomPipe
+
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,9 @@ import { DisplayComponent } from './display/display.component';
     MatRippleModule,
     SwiperModule,
     MatBadgeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

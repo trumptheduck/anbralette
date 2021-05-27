@@ -1,5 +1,6 @@
 import { HostListener } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ReloadService } from 'src/app/core/services/reload.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   isTopped: boolean = true;
   isDrawerOpened: boolean = false;
-  constructor() { }
+  constructor(public reload$: ReloadService) { }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import SwiperCore from 'swiper/core';
+import { ApiService } from '../core/services/api.service';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,16 @@ import SwiperCore from 'swiper/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  itemArray: any;
+  back:any = environment.api_url;
+  constructor(private API : ApiService) { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
+    this.API.get("/apis/items").subscribe((res)=>{
+      this.itemArray = res;
+      console.log(res);
+    })
   }
 }
