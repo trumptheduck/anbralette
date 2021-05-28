@@ -94,3 +94,109 @@
         height: 45px;
     }
 }
+
+.cart{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    transform: translateX(100%);
+    font-family: CocoGothic;
+    background-color: white;
+    transition-duration: 0.4s;
+    &--visible {
+        transform: translateX(0%);
+    }
+
+    &__wrapper {
+        padding: 20px;
+
+        &__close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        &__details {
+            line-height: 10px-;
+        }
+        &__inner {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-top: 1px dotted rgb(116, 116, 116);
+            
+            &__item {
+                position: relative;
+                height: 150px;
+
+                &__image {
+                    float: left;
+                    width: auto;
+                    height: 130px;
+                    margin-right: 10px;
+                }
+                &__name , &__amount{
+                    color: gray;
+                }
+                &__price {
+                    font-weight: bolder;
+                    color: crimson;
+                }
+                &__delete {
+                    position: absolute;
+                    bottom: 25px;
+                    right: 10px;
+                    width: 80px;
+                    height: 30px;
+                    text-align: center;
+                    line-height: 25px;
+                    background-color: crimson;
+                    color: white;
+                }
+            }
+        }
+        &__info {
+            position: relative;
+            overflow: hidden;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            &__label {
+                float: left;
+            }
+            &__total {
+                float: right;
+                color: crimson;
+                font-weight: bolder;
+            }
+        }
+        &__checkout {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__inner {
+                background-color: black;
+                width: 80%;
+                height: 40px;
+                line-height: 35px;
+                color: whitesmoke;
+                text-align: center;
+            }
+        }
+        &__more {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__inner {
+                text-decoration: underline;
+            }
+        }
+    }
+}

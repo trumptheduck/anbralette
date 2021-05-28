@@ -18,6 +18,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { DisplayComponent } from './display/display.component';
 import { CurrencyCustomPipe } from './core/pipes/currency.pipe';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -45,7 +47,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatBadgeModule,
     MatExpansionModule,
     HttpClientModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,3 +6,8 @@
 @import '~swiper/swiper-bundle';
 html, body { height: 100%; }
 body { margin: 0; font-family: CocoGothic; }
+.grey-snackbar {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  text-align: center;
+}

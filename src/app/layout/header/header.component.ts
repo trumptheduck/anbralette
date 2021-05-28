@@ -1,6 +1,9 @@
 import { HostListener } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/core/models/order.model';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ReloadService } from 'src/app/core/services/reload.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +11,20 @@ import { ReloadService } from 'src/app/core/services/reload.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  back:string = environment.api_url;
   isTopped: boolean = true;
   isDrawerOpened: boolean = false;
-  constructor(public reload$: ReloadService) { }
-
+  isCartOpened: boolean = false;
+  cartData: Order[];
+  constructor(public reload$: ReloadService, private cart$: CartService) { 
+    this.cartData = [];
+  }
   ngOnInit(): void {
+    this.cart$.cartObservable.subscribe((data)=>{
+      this.cartData = data;
+      console.log("cartCmp:",data)
+      this.isCartOpened = true;
+    })
   }
   toggleDrawer():void {
     this.isDrawerOpened = !this.isDrawerOpened;
@@ -37,6 +49,21 @@ export class HeaderComponent implements OnInit {
         this.isTopped = false
       }
   }
-
-
+  getTotalAmount():number {
+    var total:number = 0;
+    this.cartData.forEach(order=>{
+      total += order.amount;
+    })
+    return total;
+  }
+  getTotalPrice():number {
+    var total:number = 0;
+    this.cartData.forEach(order=>{
+      total += order.item.price*order.amount;
+    })
+    return total;
+  }
+  removeFromCart(id:string,size:string):void {
+    this.cart$.removeFromCart(id,size);
+  }
 }

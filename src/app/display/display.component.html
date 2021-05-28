@@ -11,16 +11,14 @@
     </ng-template>
 </swiper>
 <section class="addtocart cdk-overlay-pane">
-    <mat-icon>add_shopping_cart</mat-icon>
+    <mat-icon (click)="addToCart()">add_shopping_cart</mat-icon>
 </section>
 <section class="description">
-    <p class="description__name">Bộ Đồ Lót Đệm Mỏng Không Gọng Thoải Mái 1803</p>
-    <p class="description__price">490,000 VND</p>
+    <p class="description__name">{{itemData.name}}</p>
+    <p class="description__price">{{itemData.price | currency_pipe}}</p>
     <div class="description__sizes">
         <p class="description__sizes__title">Sizes:</p> 
-        <div class="description__sizes__size">S</div>
-        <div class="description__sizes__size">M</div>
-        <div class="description__sizes__size">XL</div>
+        <div matRipple *ngFor="let size of itemData.sizes; index as i" [ngClass]="{'description__sizes__size--selected':this.sizeIndex === i}" (click)="chooseSize(size,i)" class="description__sizes__size">{{size}}</div>
     </div>
 </section>
 <section class="details">

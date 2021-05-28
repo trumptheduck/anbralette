@@ -24,7 +24,7 @@
 </section>
 <section class="weekly">
     <p class="weekly__title">ƯU ĐÃI HÀNG TUẦN</p>
-    <swiper class="weekly__swiper"
+    <swiper *ngIf="itemArray !== undefined" class="weekly__swiper"
       [slidesPerView]="2"
       [spaceBetween]="1"
     >
@@ -43,7 +43,7 @@
 </section>
 <section class="flashsale">
     <p class="flashsale__title">FLASHSALE</p>
-    <div class="flashsale__inner">
+    <div *ngIf="itemArray !== undefined" class="flashsale__inner">
         <div *ngFor="let item of itemArray" class="flashsale__inner__item">
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
                 <img [src]="back + item.images[0]" class="flashsale__inner__item__image">
@@ -57,7 +57,7 @@
 </section>
 <section class="collection">
     <p class="collection__title">BỘ SƯU TẬP</p>
-    <div class="collection__inner">
+    <div *ngIf="itemArray !== undefined" class="collection__inner">
         <div *ngFor="let item of itemArray" class="collection__inner__item">
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
                 <img [src]="back + item.images[0]" class="collection__inner__item__image">

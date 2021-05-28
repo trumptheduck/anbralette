@@ -23,4 +23,26 @@
     <img (click)="reload$.gotoAndReload('/')" src="../../../assets/images/brand.png" class="header__logo">
     <img src="../../../assets/vectors/search.svg" class="header__search">
 </section>
-
+<section class="cart" [ngClass]="{'cart--visible':isCartOpened}">
+    <div class="cart__wrapper">
+        <div class="cart__wrapper__close"><mat-icon (click)="isCartOpened = false">close</mat-icon></div>
+        <p class="cart__wrapper__title">GIỎ HÀNG</p>
+        <p class="cart__wrapper__details">Bạn đang có <b>{{getTotalAmount()}}</b> sản phẩm trong giỏ hàng.</p>
+        <div class="cart__wrapper__inner">
+            <div *ngFor="let order of cartData" class="cart__wrapper__inner__item">
+                <img [src]="back + order.item.images[0]" class="cart__wrapper__inner__item__image">
+                <p class="cart__wrapper__inner__item__name">{{order.item.name}}</p>
+                <p class="cart__wrapper__inner__item__price">{{order.item.price | currency_pipe}}</p>
+                <p class="cart__wrapper__inner__item__amount">Số lượng: {{order.amount}}</p>
+                <p class="cart__wrapper__inner__item__size">Size: {{order.size}}</p>
+                <div class="cart__wrapper__inner__item__delete" (click)="removeFromCart(order.item.item_id,order.size)" >Xóa</div>
+            </div>
+        </div>
+        <div class="cart__wrapper__info">
+            <p class="cart__wrapper__info__label">TỔNG TIỀN TẠM TÍNH:</p>
+            <p class="cart__wrapper__info__total">{{getTotalPrice() | currency_pipe}}</p>
+        </div>
+        <div class="cart__wrapper__checkout"><div class="cart__wrapper__checkout__inner">ĐẶT HÀNG</div></div>
+        <div class="cart__wrapper__more"><div class="cart__wrapper__more__inner">Chọn thêm sản phẩm</div></div>
+    </div>
+</section>

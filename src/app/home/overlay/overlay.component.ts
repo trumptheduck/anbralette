@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-overlay',
@@ -8,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class OverlayComponent implements OnInit {
   isBannerVisible: boolean = true;
   isDiscountVisible: boolean = true;
-  constructor() { }
+  constructor(private cart$: CartService) { }
+  openCart = this.cart$.openCart;
   ngOnInit(): void {
+    
   }
 
 }
