@@ -81,6 +81,10 @@ export class ManagementComponent implements OnInit {
     this.API.get("/apis/files").subscribe((res)=>{
       this.imageArray = res.files;
       console.log("img",res)
+      var isExisted = this.imageArray.find(elem => elem === ".gitkeep");
+      if (isExisted !== undefined) {
+        this.imageArray.splice(this.imageArray.indexOf(isExisted),1) 
+      }
     })
   }
   openItemDrawer(item:Item): void {
