@@ -123,6 +123,7 @@ export class ManagementComponent implements OnInit {
     this.isEditing = false;
     this.isItemDrawerOpened = true;
     this.formData.reset();
+    this.formData.patchValue({images: [],sizes: []})
   }
 
   ////////////////////////////////////////

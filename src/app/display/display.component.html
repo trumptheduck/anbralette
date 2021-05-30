@@ -5,6 +5,7 @@
         clickable: true
       }"
       [direction]="'vertical'"
+      *ngIf="itemData?.images!==undefined&&itemData?.images?.length!==undefined"
     >
     <ng-template *ngFor="let images of itemData.images" swiperSlide>
         <img [src]="back + images" class="images__slide">
@@ -82,7 +83,7 @@
     <div class="recommendations__inner">
         <div *ngFor="let item of itemArray" class="recommendations__inner__item">
             <a (click)="reload$.gotoAndReload('/display',{id: item.item_id})">
-                <img [src]="back + item.images[0]" class="recommendations__inner__item__image">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="recommendations__inner__item__image">
                 <div class="recommendations__inner__item__desc">
                     <p class="recommendations__inner__item__desc__name">{{item.name}}</p>
                     <p class="recommendations__inner__item__desc__price">{{item.price | currency_pipe}}</p>

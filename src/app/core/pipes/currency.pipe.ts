@@ -9,7 +9,6 @@ export class CurrencyCustomPipe implements PipeTransform {
     let thousand = (price - million*1000000)/1000;
     
     let thousand_string: string;
-    console.log(thousand)
     if(thousand < 10) {
         thousand_string = `0${thousand}`
     } else if (thousand > 10 && thousand < 100) {

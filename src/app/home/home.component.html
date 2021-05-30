@@ -31,7 +31,7 @@
         <ng-template *ngFor="let item of itemArray" swiperSlide>
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
                 <div class="weekly__swiper__item">
-                    <img [src]="back + item.images[0]" class="weekly__swiper__item__image">
+                    <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="weekly__swiper__item__image">
                     <div class="weekly__swiper__item__desc">
                         <p class="weekly__swiper__item__desc__name">{{item.name}}</p>
                         <p class="weekly__swiper__item__desc__price">{{item.price | currency_pipe}}</p>
@@ -46,7 +46,7 @@
     <div *ngIf="itemArray !== undefined" class="flashsale__inner">
         <div *ngFor="let item of itemArray" class="flashsale__inner__item">
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
-                <img [src]="back + item.images[0]" class="flashsale__inner__item__image">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined" [src]="back + item.images[0]" class="flashsale__inner__item__image">
                 <div class="flashsale__inner__item__desc">
                     <p class="flashsale__inner__item__desc__name">{{item.name}}</p>
                     <p class="flashsale__inner__item__desc__price">{{item.price | currency_pipe}}</p>
@@ -60,7 +60,7 @@
     <div *ngIf="itemArray !== undefined" class="collection__inner">
         <div *ngFor="let item of itemArray" class="collection__inner__item">
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
-                <img [src]="back + item.images[0]" class="collection__inner__item__image">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="collection__inner__item__image">
                 <div class="collection__inner__item__desc">
                     <p class="collection__inner__item__desc__name">{{item.name}}</p>
                     <p class="collection__inner__item__desc__price">{{item.price | currency_pipe}}</p>
