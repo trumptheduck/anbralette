@@ -35,9 +35,9 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
 
-  delete(path: string): Observable<any> {
+  delete(path: string, body: Object = {}): Observable<any> {
     return this.http
-      .delete(`${environment.api_url}${path}`)
+      .delete(`${environment.api_url}${path}`,body)
       .pipe(catchError(this.handleError));
   }
 

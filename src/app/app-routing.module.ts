@@ -24,7 +24,10 @@ const routes: Routes = [
       },
     ]
   },
-  
+  {
+    path: "admin",
+    loadChildren: () => import('./management/management.module').then((m) => m.ManagementModule)
+  }
 ];
 
 @NgModule({

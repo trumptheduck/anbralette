@@ -22,9 +22,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +31,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FooterComponent,
     OverlayComponent,
     DisplayComponent,
-    CurrencyCustomPipe
+    CurrencyCustomPipe,
 
   ],
   imports: [
@@ -48,7 +45,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatExpansionModule,
     HttpClientModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
