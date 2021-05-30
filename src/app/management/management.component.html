@@ -50,8 +50,12 @@
             <input class="form-control" type="number" formControlName="price" placeholder="Price" >
             <input class="form-control" type="number" formControlName="discount" placeholder="Discount" >
             <input class="form-control" formControlName="images" style="display: none;">
-            <textarea class="form-control" formControlName="description" rows="3" placeholder="Description"></textarea>
+            <textarea class="form-control" hidden formControlName="description" rows="3" placeholder="Description" [value]="EditorData"></textarea>
         </form>
+        <ckeditor 
+        [(ngModel)]="EditorData" 
+        [editor]="Editor"  
+        (ready)="setHeight($event)"></ckeditor>
         <div id="preview">
             <img *ngFor="let imgsrc of formData.value.images" [src]="back+imgsrc" width="100px" height="100px" style="float: left;">
             <button id="change-images" class="btn btn-info" (click)="selectImages()">Đổi ảnh</button>

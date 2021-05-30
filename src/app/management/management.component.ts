@@ -3,6 +3,7 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { Item } from '../core/models/item.model';
 import { ApiService } from '../core/services/api.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-management',
@@ -10,6 +11,19 @@ import { ApiService } from '../core/services/api.service';
   styleUrls: ['./management.component.scss']
 })
 export class ManagementComponent implements OnInit {
+  public Editor = ClassicEditor;
+  public EditorData = ""
+
+  setHeight(editor) {
+    editor.editing.view.change((writer) => {
+      writer.setStyle(
+          "height",
+          "150px",
+          editor.editing.view.document.getRoot()
+      );
+      });
+  }
+
   viewIndex: number = 0;
   back:string = environment.api_url;
   imageSelector_selIndex:number;
@@ -48,6 +62,7 @@ export class ManagementComponent implements OnInit {
   }
 
   editItem(): void {
+    this.formData.patchValue({description:this.EditorData})
     console.log(this.formData.value)
     this.API.patch("/apis/item",this.formData.value).subscribe((res)=>{
       console.log(res)
@@ -56,6 +71,7 @@ export class ManagementComponent implements OnInit {
     })
   }
   addItem(): void {
+    this.formData.patchValue({description:this.EditorData})
     console.log(this.formData.value)
     this.API.post("/apis/item",this.formData.value).subscribe((res)=>{
       console.log(res)
@@ -101,6 +117,7 @@ export class ManagementComponent implements OnInit {
       images: item.images,
       description: item.description
     })
+    this.EditorData = this.formData.value.description;
   }
   openItemDrawerAsNew(): void {
     this.isEditing = false;

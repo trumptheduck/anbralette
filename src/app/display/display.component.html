@@ -24,20 +24,7 @@
 <section class="details">
     <mat-tab-group class="details__tabs" mat-stretch-tabs [backgroundColor]="'primary'">
         <mat-tab label="Mô tả">
-            <div class="details__tabs__tab">
-                Mô tả: 
-                <br>
-                - Sản phẩm phân phối của Venus Charm với set bộ không tách lẻ. 
-                <br>
-                - Dòng áo đệm mỏng nhẹ ôm ngực nhẹ nhàng tự nhiên 
-                <br>
-                - Sản phẩm không gọng thoải mái , không đau chân ngực 
-                <br>
-                - Quần chất gân đúc nhẹ nhàng, thoáng mát có giãn thoải mái 
-                <br>
-                * Màu sắc: đen - đỏ - trắng kem - xanh 
-                <br>
-                * Size: 34/75 - 36/80 
+            <div class="details__tabs__tab" [innerHtml]="itemData.description">
             </div>
         </mat-tab>
         <mat-tab class="details__tabs__tab" label="Phí ship">

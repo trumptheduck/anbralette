@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 import { ManagementRoutingModule } from './management-routing.module';
@@ -7,6 +8,7 @@ import { ManagementComponent } from './management.component';
 import { CommonModule } from '@angular/common';
 import { CurrencyCustomPipe } from '../core/pipes/currency.pipe';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ManagementRoutingModule,
     ReactiveFormsModule,
+    CKEditorModule,
+    FormsModule
   ],
 
 })
