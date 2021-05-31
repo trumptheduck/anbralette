@@ -9,7 +9,18 @@
         <div class="item" routerLink="/admin/dashboard/gallery">Hình ảnh</div>
         <div class="item" routerLink="/admin/dashboard/upload">Tải lên</div>
     </div>
+    <div class="cdk-overlay-pane">
+        <div id="menu-mobile" [ngClass]="{'visible':isMenuOpened}" >
+            <mat-icon class="close" (click)="isMenuOpened = false">close</mat-icon>
+            <div class="item" routerLink="/admin/dashboard/product">Mặt hàng</div>
+            <div class="item" routerLink="/admin/dashboard/category">Danh mục</div>
+            <div class="item" routerLink="/admin/dashboard/order">Đơn hàng</div>
+            <div class="item" routerLink="/admin/dashboard/gallery">Hình ảnh</div>
+            <div class="item" routerLink="/admin/dashboard/upload">Tải lên</div>
+        </div>
+    </div>
 </div>
+<div class="menu-button" [ngClass]="{'hidden':isMenuOpened}" (click)="isMenuOpened = true">MENU</div>
     <router-outlet></router-outlet>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
