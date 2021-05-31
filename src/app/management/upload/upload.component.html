@@ -1,44 +1,28 @@
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8 mt-3">
-            <h4>Upload Images</h4>
-            <form [action]="back+'/apis/files'" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="file" name="multi-files" multiple id="input-multi-files" class="form-control-file border"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
-        </div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+
+    <div class="form-group">
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control"
+            hidden>
     </div>
-    <hr />
-    <div class="row">
-    <div class="col-sm-12">
-        <div class="preview-images"></div>
+
+    <div class="form-group">
+        <label for="file">Chọn file để tải lên: </label>
+        <input 
+            formControlName="file"
+            id="file" 
+            type="file" 
+            multiple
+            class="form-control"
+            (change)="onFileChange($event)">
     </div>
-    </div>
-</div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-    $(document).ready(function() {
-    let imagesPreview = function(input, placeToInsertImagePreview) {
-        if (input.files) {
-        let filesAmount = input.files.length;
-        for (i = 0; i < filesAmount; i++) {
-            let reader = new FileReader();
-            reader.onload = function(event) {
-            $($.parseHTML("<img>"))
-                .attr("src", event.target.result)
-                .appendTo(placeToInsertImagePreview);
-            };
-            reader.readAsDataURL(input.files[i]);
-        }
-        }
-    };
-    $("#input-multi-files").on("change", function() {
-        imagesPreview(this, "div.preview-images");
-    });
-    });
-</script>
+
+    <button class="btn btn-primary" type="submit">Tải lên</button>
+    <button class="btn btn-primary" routerLink="/admin/dashboard" type="submit">Về bảng điều khiển</button>
+</form>

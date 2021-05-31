@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { CurrencyCustomPipe } from '../core/pipes/currency.pipe';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     ManagementRoutingModule,
     ReactiveFormsModule,
     CKEditorModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
 
 })
