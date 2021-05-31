@@ -10,12 +10,24 @@ import { CurrencyCustomPipe } from '../core/pipes/currency.pipe';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { ProductComponent } from './product/product.component';
+import { OrderComponent } from './order/order.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { CategoryComponent } from './category/category.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 @NgModule({
   declarations: [
     UploadComponent,
-    ManagementComponent
+    ManagementComponent,
+    ProductComponent,
+    OrderComponent,
+    GalleryComponent,
+    CategoryComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +35,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     CKEditorModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
   ],
 
 })

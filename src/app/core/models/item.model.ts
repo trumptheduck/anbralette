@@ -7,4 +7,5 @@ export interface Item {
     sizes: [string],
     description: string,
     discount?: number,
+    instock?: string
 }

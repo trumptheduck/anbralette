@@ -1,0 +1,48 @@
+.view {
+    position: absolute;
+    top: 70px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+.material-icons{
+    cursor: pointer;
+}
+.material-icons:hover {
+    color: aqua;
+}
+
+#orders .datetime {
+    width: 200px;
+}
+#orders input, #orders select, #orders label {
+    float: left;
+    margin: 10px;
+    margin-top: 20px;
+    position: relative;
+    left: 15%;
+}
+#orders label {
+    float: left;
+}
+#orders #filter {
+    padding: 20px;
+}
+#orders table tr.green {
+    background-color: lightgreen;
+}
+#orders table tr.red {
+    background-color: lightcoral;
+}
+#orders table tr.yellow {
+    background-color: yellow;
+}
+#orders table tr.blue {
+    background-color: lightblue;
+}
+#orders table tr.purple {
+    background-color: slateblue;
+}
+#orders table tr.grey {
+    background-color: grey;
+}

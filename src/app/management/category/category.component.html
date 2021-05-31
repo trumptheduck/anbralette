@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<div class="category">
+    <div *ngIf="categoryArray?.length !== undefined" class="inner">
+        <button class="btn btn-secondary" (click)="openWindowNewCategory()">Thêm danh mục</button>
+        <button class="btn btn-success" (click)="fetchCategoryData()">Làm mới</button>
+        <mat-expansion-panel color="primary" *ngFor="let category of categoryArray">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{category.name}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <button class="btn btn-secondary" (click)="openWindowNewSubCategory(category)">Thêm danh mục phụ</button>
+            <button class="btn btn-danger" (click)="deleteCategory(category)">Xóa danh mục</button>
+            <mat-expansion-panel  color="primary" *ngFor="let subcategory of category.children">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{subcategory.name}}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <button class="btn btn-secondary" (click)="openEditItemWindow(subcategory.item,subcategory)">Chọn sản phẩm</button>
+              <button class="btn btn-danger" (click)="deleteSubCategory(category,subcategory)">Xóa danh mục phụ</button>
+                <p *ngFor="let item of subcategory.item">ID:{{item.item_id}}|Tên sản phẩm:{{item.name}}</p>
+              </mat-expansion-panel>
+        </mat-expansion-panel>
+</div>
+<div class="cdk-overlay-pane">
+  <div class="new" [ngClass]="{'new--visible':isWindowOpened}">
+    <div class="new__inner">
+      <p class="new__inner__title">{{windowTitle}}</p>
+      <input [(ngModel)]="formName" type="text" class="new__inner__input form-control" placeholder="Ten">
+      <button (click)="commitChanges()" class="btn btn-success new__inner__submit">Lưu</button>
+      <button (click)="isWindowOpened = false" class="btn btn-secondary new__inner__cancel">Hủy bỏ</button>
+    </div>
+  </div>
+  <div class="item" [ngClass]="{'item--visible':isItemWindowOpenned}">
+    <div class="item__wrapper">
+      <p class="item__title">Thay đổi sản phẩm</p>
+      Sản phẩm hiện tại
+        <div class="item__wrapper__inner-sel">
+          <input [(ngModel)]="selModel" (ngModelChange)="updateQuerySel()" type="text" class="form-control" style="width: 50%;" placeholder="Tìm kiếm">
+          <table class="item__wrapper__inner-sel__table table">
+            <tr>
+              <th>ID</th>
+              <th>Tên sản phẩm</th>
+              <th>Hành động</th>
+            </tr>
+            <tr *ngFor="let item of itemSelector.filtered.sel">
+              <td>{{item.item_id}}</td>
+              <td>{{item.name}}</td>
+              <td><button style="margin: 0px;" (click)="removeItem(item)">Xóa</button></td>
+            </tr>
+          </table>
+        </div>
+        <div class="item__wrapper__inner-curr">
+          <input [(ngModel)]="currModel" (ngModelChange)="updateQueryCurr()" type="text" class="form-control" style="width: 50%;" placeholder="Tìm kiếm">
+          <table class="item__wrapper__inner-curr__table table">
+            <tr>
+              <th>ID</th>
+              <th>Tên sản phẩm</th>
+              <th>Hành động</th>
+            </tr>
+            <tr *ngFor="let item of itemSelector.filtered.curr">
+              <td>{{item.item_id}}</td>
+              <td>{{item.name}}</td>
+              <td><button style="margin: 0px;" (click)="addItem(item)">Thêm</button></td>
+            </tr>
+          </table>
+        </div>
+        <button (click)="saveItems()" class="item__wrapper__submit btn btn-success">Lưu</button>
+        <button (click)="this.isItemWindowOpenned = false;" class="item__wrapper__cancel btn btn-secondary">Hủy bỏ</button>
+    </div>
+  </div>
+</div>
