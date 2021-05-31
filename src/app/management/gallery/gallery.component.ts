@@ -17,7 +17,9 @@ export class GalleryComponent implements OnInit {
   constructor(private API: ApiService) { }
 
   ngOnInit(): void {
-    
+    this.imageGallery_deleteArray=[];
+    this.imageArray=[];
+    this.fetchImageData()
   }
   fetchImageData(): void {
     this.API.get("/apis/files").subscribe((res)=>{
