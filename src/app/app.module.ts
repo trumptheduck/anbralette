@@ -19,6 +19,8 @@ import { DisplayComponent } from './display/display.component';
 import { CurrencyCustomPipe } from './core/pipes/currency.pipe';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -46,6 +48,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HttpClientModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule
 
   ],
   providers: [],

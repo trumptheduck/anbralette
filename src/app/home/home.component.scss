@@ -3,6 +3,9 @@
     width: 100.5%;
     height: auto;
 }
+.banner2 {
+    display: none;
+}
 .motto {
     font-family: CocoGothic;
     width: 100%;
@@ -15,6 +18,61 @@
     padding-bottom: 20px;
     user-select: none;
 
+    &__image {
+        width: 100px;
+    }
+    &__title {
+        font-size: 20px;
+    }
+    &__inner {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+
+        &__measure {
+            width: 149px;
+            height: 39px;
+            margin: 10px;
+            color: black;
+            border-color: white;
+            border: black 1px solid;
+            line-height: 36px;
+            text-align: center;
+        }
+        &__buy {
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+            color: white;
+            background-color: black;
+            line-height: 36px;
+            text-align: center;
+        }
+    }
+}
+.motto-desktop {
+    position: relative;
+    top: -340px;
+    font-family: CocoGothic;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    user-select: none;
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255,0.8);
+        padding: 20px;
+    }
     &__image {
         width: 100px;
     }
@@ -199,5 +257,229 @@ a {text-decoration: none; color: inherit}
                 }
             }
         }  
+    }
+}
+.news {
+    display: none;
+}
+.policy-desktop {
+    display: none;
+}
+@media screen and (min-width: 500px) { 
+    .banner {
+        position: relative;
+        width: 50%;
+        height: auto;
+        float:left;
+    }
+    .banner2 {
+        position: relative;
+        width: 50%;
+        height: auto;
+        float:left;
+        display: block;
+    }
+    .motto {
+        display: none;
+    }
+    .motto-desktop {
+        display: flex;
+    }
+    .policy {
+        display: none;
+    }
+    .news {
+        font-family: CocoGothic;
+        display: block;
+        position: relative;
+        top: -200px;
+        width: 100%;
+        height: auto;
+        padding-top: 20px;
+        overflow: hidden;
+
+        &__before {
+            position: relative;
+            width: 50%;
+            height: auto;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            &__thumb {
+                width: 50%;
+                height: auto;
+            }
+            &__title {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-size: 30px;
+            }
+            &__subtitle {
+                color: grey;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+        &__after {
+            position: relative;
+            width: 50%;
+            height: auto;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            &__thumb {
+                width: 50%;
+                height: auto;
+            }
+            &__title {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-size: 30px;
+            }
+            &__subtitle {
+                color: grey;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .policy-desktop {
+        position: relative;
+        top: -100px;
+        font-family: CocoGothic;
+        width: 100%;
+        height: 100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        &__item {
+            border-left: solid 1px grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            line-height: 30px;
+
+            &__title {
+                font-size: 22px;
+            }
+            &__more {
+                color: grey;
+            }
+        }
+    }
+    .weekly {
+        z-index: 1;
+        position: relative;
+        font-family: CocoGothic;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    
+        &__title {
+            margin-left: 5px;
+            font-size: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        &__swiper {
+            position: relative;
+    
+            &__item {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                height: 550px;
+    
+                &__image {
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                    width: 100%;
+                    height: 460px;
+                }
+                &__desc {
+                    position: absolute;
+                    bottom: 0%;
+                    left: 0%;
+                    width: 100%;
+                    height: 80px;
+                    
+    
+                    &__name {
+                        margin-left: 5px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-size: 15px;
+                    }
+                    &__price {
+                        padding-top: 8px;
+                        margin-left: 5px;
+                        font-weight: bold;
+                        color: red;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    .flashsale, .collection {
+        font-family: CocoGothic;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    
+        &__title {
+            margin-left: 5px;
+            font-size: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        &__inner {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            column-gap: 1px;
+            &__item {
+                position: relative;
+                width: 100%;
+                height: 550px;
+    
+                &__image {
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                    width: 100%;
+                    height: 460px;
+                }
+                &__desc {
+                    position: absolute;
+                    bottom: 0%;
+                    left: 0%;
+                    width: 100%;
+                    height: 80px;
+                    
+    
+                    &__name {
+                        margin-left: 5px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-size: 15px;
+                    }
+                    &__price {
+                        padding-top: 8px;
+                        margin-left: 5px;
+                        font-weight: bold;
+                        color: red;
+                        font-size: 16px;
+                    }
+                }
+            }  
+        }
     }
 }

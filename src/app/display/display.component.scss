@@ -201,3 +201,216 @@ a {text-decoration: none; color: inherit}
         }  
     }
 }
+
+@media screen and (min-width: 500px) {  
+.images {
+    float: left;
+    width: 70%;
+    height: 80%;
+
+    &__slide {
+        width: 100%;
+        height: 100%;
+    }
+}
+a {text-decoration: none; color: inherit}
+
+.addtocart {
+    position: relative;
+    top: 80px;
+    left: -200px;
+    float: right;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border-radius: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.2s;
+    display: none;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+
+
+    & mat-icon {
+        font-size: 25px;
+    }
+}
+
+.description {
+    font-family: CocoGothic;
+    padding: 10px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+    overflow: hidden;
+
+    &__name {
+        font-weight: lighter;
+    }
+    &__price {
+        font-weight: bolder;
+        color: red;
+    }
+    &__sizes {
+        padding-bottom: 10px;
+        &__size {
+            width: 40px;
+            height: 20px;
+            line-height: 16px;
+            text-align: center;
+            border: black solid 1px;
+            background-color: white;
+            margin: 3px;
+            float: left;
+            transition-duration: 0.2s;
+
+            &--selected {
+                background-color: rgb(27, 27, 27);
+                color: white;
+            }
+        }
+    }
+}
+
+.details {
+    font-family: CocoGothic;
+    position: relative;
+    min-height: 300px;
+    
+    &__tabs {
+        filter: grayscale(1) brightness(0.8);
+        &__tab {
+            font-family: CocoGothic;
+            padding: 15px;
+        }
+    }
+}
+
+.callback {
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    &__title {
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    &__input {
+        width: 90%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 1px solid lightgray;
+    }
+    &__submit {
+        margin-top: 20px;
+        width: 200px;
+        height: 30px;
+        line-height: 26px;
+        text-align: center;
+        border: black solid 1px;
+        opacity: 0.8;
+    }
+}
+
+.reviews {
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    &__title {
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+    &__inner {
+        padding: 10px;
+    }
+}
+
+.buynow {
+    cursor: pointer;
+    user-select: none;
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__inner {
+        width: 150px;
+        height: 50px;
+        background-color: black;
+        color: white;
+        line-height: 45px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+}
+
+.recommendations {
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__title {
+        margin-left: 5px;
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    &__inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        column-gap: 1px;
+        &__item {
+            position: relative;
+            width: 100%;
+            height: 550px;
+
+            &__image {
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 460px;
+            }
+            &__desc {
+                position: absolute;
+                bottom: 0%;
+                left: 0%;
+                width: 100%;
+                height: 80px;
+                
+
+                &__name {
+                    margin-left: 5px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-size: 15px;
+                }
+                &__price {
+                    padding-top: 8px;
+                    margin-left: 5px;
+                    font-weight: bold;
+                    color: red;
+                    font-size: 16px;
+                }
+            }
+        }  
+    }
+}
+}

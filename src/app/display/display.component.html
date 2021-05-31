@@ -1,10 +1,10 @@
 <swiper class="images"
-      [slidesPerView]="1"
+      [slidesPerView]="2"
       [spaceBetween]="1"
       [pagination]="{
         clickable: true
       }"
-      [direction]="'vertical'"
+      [direction]="'horizontal'"
       *ngIf="itemData?.images!==undefined&&itemData?.images?.length!==undefined"
     >
     <ng-template *ngFor="let images of itemData.images" swiperSlide>
@@ -76,7 +76,7 @@
     </div>
 </section>
 <section class="buynow">
-    <div class="buynow__inner">ĐẶT MUA</div>
+    <div (click)="addToCart()" class="buynow__inner">ĐẶT MUA</div>
 </section>
 <section class="recommendations">
     <p class="recommendations__title">CÓ THỂ BẠN QUAN TÂM</p>

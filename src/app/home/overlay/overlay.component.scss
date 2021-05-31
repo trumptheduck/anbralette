@@ -99,3 +99,30 @@
         }
     }
 }
+@media screen and (min-width: 500px) {  
+    .overlay {
+        &__cart {
+            display: none;
+        }
+        &__banner {
+            position: fixed;
+            width: 400px;
+            height: 120px;
+            bottom: 0px;
+            background-color: white;
+        }
+        &__discount {
+            position: fixed;
+            width: 400px;
+            height: 50px;
+            bottom: 120px;
+            left: 0%;
+            &__close {
+                position: absolute;
+                z-index: 3;
+                top: 5px;
+                right: 5px;
+            }
+        }
+    }
+}

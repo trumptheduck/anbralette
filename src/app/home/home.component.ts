@@ -12,6 +12,7 @@ import { Item } from '../core/models/item.model';
 })
 export class HomeComponent implements OnInit {
   itemArray: Item[];
+  slidePerView: number = 2;
   back:any = environment.api_url;
   constructor(private API : ApiService) { 
     this.itemArray = [];
@@ -22,6 +23,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    if (window.innerWidth < 500) {
+      this.slidePerView = 2;
+    } else {
+      this.slidePerView = 5;
+    }
   }
 }

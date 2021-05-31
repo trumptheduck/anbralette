@@ -46,3 +46,22 @@
         <div class="cart__wrapper__more"><div class="cart__wrapper__more__inner">Chọn thêm sản phẩm</div></div>
     </div>
 </section>
+<section class="header-desktop" [ngClass]="{'header-desktop--transparent':isTopped}">
+    <img (click)="reload$.gotoAndReload('/')" src="../../../assets/images/brand.png" class="header-desktop__logo">
+    <div class="header-desktop__menu">
+        <p class="header-desktop__menu__item">NEW</p>
+        <p class="header-desktop__menu__item">ÁO LÓT</p>
+        <p class="header-desktop__menu__item">QUẦN LÓT</p>
+        <p class="header-desktop__menu__item">SET BRAS</p>
+        <p class="header-desktop__menu__item">ĐỒ NGỦ</p>
+    </div>
+    <div class="header-desktop__cart"><mat-icon (click)="isCartOpened = true">shopping_basket</mat-icon></div>
+    <div class="header-desktop__user"><mat-icon>account_circle</mat-icon></div>
+    <div class="header-desktop__search"><mat-icon>search</mat-icon></div>
+    <div class="header-desktop__filter">
+        <mat-form-field color="accent" class="example-full-width">
+            <mat-label>Bạn cần tìm gì?</mat-label>
+            <input matInput type="text" >
+        </mat-form-field>
+    </div>
+</section>
