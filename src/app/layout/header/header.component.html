@@ -1,9 +1,9 @@
 <section class="drawer" [ngClass]="{'drawer--visible':isDrawerOpened}">
     <div class="drawer__signin">
-        <mat-icon>person</mat-icon>Đăng nhập
+        <a (click)="reload$.gotoAndTrace('/auth/login')"><mat-icon>person</mat-icon>Đăng nhập</a>
     </div>
     <div class="drawer__signup">
-        <mat-icon>how_to_reg</mat-icon>Đăng ký
+        <a (click)="reload$.gotoAndTrace('/auth/register')"><mat-icon>how_to_reg</mat-icon>Đăng ký</a>
     </div><br>
     <div class="drawer__menu">
         <p class="drawer__menu__item">+ NEW</p>
@@ -56,7 +56,7 @@
         <p class="header-desktop__menu__item">ĐỒ NGỦ</p>
     </div>
     <div class="header-desktop__cart"><mat-icon (click)="isCartOpened = true">shopping_basket</mat-icon></div>
-    <div class="header-desktop__user"><mat-icon>account_circle</mat-icon></div>
+    <div class="header-desktop__user" (click)="reload$.gotoAndTrace('/auth/login')"><mat-icon>account_circle</mat-icon></div>
     <div class="header-desktop__search"><mat-icon>search</mat-icon></div>
     <div class="header-desktop__filter">
         <mat-form-field color="accent" class="example-full-width">

@@ -8,6 +8,7 @@
         <div class="item" routerLink="/admin/dashboard/order">Đơn hàng</div>
         <div class="item" routerLink="/admin/dashboard/gallery">Hình ảnh</div>
         <div class="item" routerLink="/admin/dashboard/upload">Tải lên</div>
+        <div class="item" (click)="logout()">Đăng xuất</div>
     </div>
     <div class="cdk-overlay-pane">
         <div id="menu-mobile" [ngClass]="{'visible':isMenuOpened}" >
@@ -17,6 +18,7 @@
             <div class="item" routerLink="/admin/dashboard/order">Đơn hàng</div>
             <div class="item" routerLink="/admin/dashboard/gallery">Hình ảnh</div>
             <div class="item" routerLink="/admin/dashboard/upload">Tải lên</div>
+            <div class="item" (click)="logout()">Đăng xuất</div>
         </div>
     </div>
 </div>

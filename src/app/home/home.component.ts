@@ -12,12 +12,17 @@ import { Item } from '../core/models/item.model';
 })
 export class HomeComponent implements OnInit {
   itemArray: Item[];
+  categoryArray:any[];
   slidePerView: number = 2;
   back:any = environment.api_url;
   constructor(private API : ApiService) { 
     this.itemArray = [];
     this.API.get("/apis/items").subscribe((res)=>{
       this.itemArray = res;
+      console.log(res);
+    })
+    this.API.get("/apis/categories").subscribe((res)=>{
+      this.categoryArray = res;
       console.log(res);
     })
   }

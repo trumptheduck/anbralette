@@ -1,0 +1,97 @@
+.register {
+    font-family: CocoGothic;
+    position: relative;
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    &__logo {
+      width: 50px;
+      height: auto;
+      margin-top: 15px;
+    }
+    &__title {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+    &__email, &__password , &__repassword {
+      width: 338px;
+      padding: 12px;
+      border: solid rgb(196, 196, 196) 1px;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-family: CocoGothic;
+    }
+    &__password , &__repassword {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    &__submit {
+      width: 357px;
+      padding: 12px;
+      border: solid rgb(196, 196, 196) 1px;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-family: CocoGothic;
+      cursor: pointer;
+      background-color: rgb(0, 110, 255);
+      color: white;
+    }
+    &__or {
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+    &__google {
+      width: 357px;
+      padding: 12px;
+      border: solid rgb(196, 196, 196) 1px;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-family: CocoGothic;
+      margin-bottom: 20px;
+      cursor: pointer;
+      background-color: rgb(255, 32, 32);
+      color: white;
+    }
+    
+  }
+  .main {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 500px) { 
+      .register {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+
+        &__email, &__password, &__repassword {
+        width: 80%;
+        }
+        &__submit {
+        width: 87%;
+        }
+        &__or {
+        margin-top: 20px;
+        margin-bottom: 5px;
+        }
+        &__google {
+        width: 87%;
+        }
+      }
+  }

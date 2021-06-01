@@ -22,6 +22,7 @@ export class DisplayComponent implements OnInit {
   itemArray: Item[];
   itemSize: string;
   sizeIndex:number;
+  swiperDir:boolean = true;
   back:any = environment.api_url;
 
   constructor(private route: ActivatedRoute,
@@ -45,6 +46,10 @@ export class DisplayComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    if (window.innerWidth > 800) {
+      this.swiperDir = false;
+    }
+    console.log(this.swiperDir,window.innerWidth)
     this.route.queryParams
       .subscribe(params => {
         console.log(params);

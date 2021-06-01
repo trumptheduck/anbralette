@@ -21,6 +21,12 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AuthComponent } from './auth/auth.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -34,6 +40,9 @@ import {MatInputModule} from '@angular/material/input';
     OverlayComponent,
     DisplayComponent,
     CurrencyCustomPipe,
+    AuthComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
@@ -49,7 +58,11 @@ import {MatInputModule} from '@angular/material/input';
     MatTabsModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

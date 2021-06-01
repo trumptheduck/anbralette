@@ -1,0 +1,14 @@
+<div class="main" [style]="'background-image: url('+ back +'/static/images/back.jpg'+')'">
+    <div class="login">
+        <img src="../../../assets/images/brand.png" alt="" class="login__logo">
+        <p class="login__title">Đăng nhập tài khoản</p>
+        <form [formGroup]="formData">
+            <input formControlName="email" type="text" class="login__email" placeholder="Email">
+            <input formControlName="password" type="password" class="login__password" placeholder="Password">
+        </form>
+        <button class="login__submit" (click)="login()">Đăng nhập</button>
+        <p class="login__or">Hoặc</p>
+        <button class="login__google">Đăng nhập với Google</button>
+        <p class="login__register">Bạn chưa có tài khoản? <a routerLink="/auth/register">Đăng ký</a></p>
+    </div>
+</div>

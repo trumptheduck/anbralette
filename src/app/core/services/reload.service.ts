@@ -12,4 +12,7 @@ export class ReloadService {
       this.router.navigate([routerlink],{queryParams: params});
   }); 
   }
+  gotoAndTrace(routerlink:String):void {
+    this.router.navigate([routerlink],{queryParams: {from: document.location.href}});
+  }
 }

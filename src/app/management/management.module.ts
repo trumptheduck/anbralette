@@ -16,6 +16,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { CategoryComponent } from './category/category.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -28,6 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
     OrderComponent,
     GalleryComponent,
     CategoryComponent,
+    HomepageComponent,
   ],
   imports: [
     CommonModule,

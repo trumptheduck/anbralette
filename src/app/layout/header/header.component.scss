@@ -2,6 +2,10 @@ mat-icon {
     user-select: none;
     cursor: pointer;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+  }
 .drawer {
     padding-top: 65px;
     position: fixed;

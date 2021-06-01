@@ -1,11 +1,24 @@
 <swiper class="images"
+      [slidesPerView]="1"
+      [spaceBetween]="1"
+      [pagination]="{
+        clickable: true
+      }"
+      [direction]="'vertical'"
+      *ngIf="itemData?.images!==undefined&&itemData?.images?.length!==undefined&&swiperDir"
+    >
+    <ng-template *ngFor="let images of itemData.images" swiperSlide>
+        <img [src]="back + images" class="images__slide">
+    </ng-template>
+</swiper>
+<swiper class="images"
       [slidesPerView]="2"
       [spaceBetween]="1"
       [pagination]="{
         clickable: true
       }"
       [direction]="'horizontal'"
-      *ngIf="itemData?.images!==undefined&&itemData?.images?.length!==undefined"
+      *ngIf="itemData?.images!==undefined&&itemData?.images?.length!==undefined&&!swiperDir"
     >
     <ng-template *ngFor="let images of itemData.images" swiperSlide>
         <img [src]="back + images" class="images__slide">
