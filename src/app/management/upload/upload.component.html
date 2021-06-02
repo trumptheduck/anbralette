@@ -23,5 +23,7 @@
             (change)="onFileChange($event)">
     </div>
 
-    <button class="btn btn-primary" type="submit">Tải lên</button>
+    <button class="btn btn-primary" type="submit" [ngClass]="{'none':isUploading}">Tải lên</button>
+    <p class="progress-inf" [ngClass]="{'none':!isUploading}">{{progressInf}}</p>
+    <mat-progress-bar [ngClass]="{'none':!isUploading}" mode="determinate" [value]="progressPerc"></mat-progress-bar>
 </form>

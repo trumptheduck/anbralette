@@ -43,7 +43,7 @@
             <p class="cart__wrapper__info__total">{{getTotalPrice() | currency_pipe}}</p>
         </div>
         <div class="cart__wrapper__checkout"><div class="cart__wrapper__checkout__inner">ĐẶT HÀNG</div></div>
-        <div class="cart__wrapper__more"><div class="cart__wrapper__more__inner">Chọn thêm sản phẩm</div></div>
+        <div class="cart__wrapper__more"><div class="cart__wrapper__more__inner" (click)="isCartOpened = false">Chọn thêm sản phẩm</div></div>
     </div>
 </section>
 <section class="header-desktop" [ngClass]="{'header-desktop--transparent':isTopped}">

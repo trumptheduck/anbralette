@@ -9,5 +9,5 @@
         <img src="../../../assets/images/popup.png" class="overlay__banner__image">
         <div class="overlay__banner__close"><mat-icon (click)="isBannerVisible = false">close</mat-icon></div>
     </div>
-    <div class="overlay__cart"><mat-icon (click)="openCart()" matBadge="8" matBadgeSize="small">shopping_basket</mat-icon></div>
+    <div class="overlay__cart"><mat-icon (click)="openCart()" [matBadge]="getTotalAmount()" matBadgeSize="small">shopping_basket</mat-icon></div>
 </section>
