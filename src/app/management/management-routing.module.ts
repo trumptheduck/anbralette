@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryComponent } from './category/category.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { ManagementComponent } from './management.component';
 import { OrderComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: "category",
         component: CategoryComponent,
+      },
+      {
+        path: "homepage",
+        component: HomepageComponent,
       },
     ]
   },

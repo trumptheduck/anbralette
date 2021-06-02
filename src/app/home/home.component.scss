@@ -1,3 +1,22 @@
+.sale {
+    font-size: 10px;
+    color: grey;
+    text-decoration: line-through;
+
+    &__percent {
+        float: right;
+        font-size: 10px;
+        text-decoration: none;
+        width: 40px;
+        height: 20px;
+        background-color: red;
+        color: white;
+        line-height: 20px;
+        text-align: center;
+        margin-right: 10px;
+    }
+}
+
 .banner {
     position: relative;
     width: 100.5%;
@@ -200,6 +219,14 @@ a {text-decoration: none; color: inherit}
                     font-weight: bold;
                     color: red;
                     font-size: 16px;
+
+                    &--discount {
+                        color: red;
+                        padding-top: 0px;
+                        & p {
+                            line-height: 0px;
+                        }
+                    }
                 }
             }
         }
@@ -254,6 +281,13 @@ a {text-decoration: none; color: inherit}
                     font-weight: bold;
                     color: red;
                     font-size: 16px;
+
+                    &--discount {
+                        padding-top: 0px;
+                        & p {
+                            line-height: 0px;
+                        }
+                    }
                 }
             }
         }  

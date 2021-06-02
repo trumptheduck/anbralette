@@ -129,7 +129,7 @@ export class CategoryComponent implements OnInit {
   removeItem(item) {
     var isExisted = this.itemSelector.selItem.find(elem => elem._id === item._id)
     if (isExisted !== undefined) {
-      this.itemSelector.selItem.splice(this.itemSelector.selItem.indexOf(isExisted));
+      this.itemSelector.selItem.splice(this.itemSelector.selItem.indexOf(isExisted),1);
     }
     this.updateReducedItemArray()
     this.updateQueryCurr()

@@ -24,6 +24,7 @@ export class UploadComponent implements OnInit {
 
   } 
   onFileChange(event) {
+        this.myFiles.length = 0;
         for (var i = 0; i < event.target.files.length; i++) { 
             this.myFiles.push(event.target.files[i]);
         }

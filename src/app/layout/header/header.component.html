@@ -32,7 +32,8 @@
             <div *ngFor="let order of cartData" class="cart__wrapper__inner__item">
                 <img [src]="back + order.item.images[0]" class="cart__wrapper__inner__item__image">
                 <p class="cart__wrapper__inner__item__name">{{order.item.name}}</p>
-                <p class="cart__wrapper__inner__item__price">{{order.item.price | currency_pipe}}</p>
+                <div *ngIf="order.item.discount!==null&&order.item.discount !== order.item.price" class="cart__wrapper__inner__item__price">{{order.item.discount | currency_pipe}}<p style="text-decoration: line-through;font-size: 10px; color: grey">{{order.item.price | currency_pipe}}</p></div>
+                <p *ngIf="order.item.discount===null||order.item.discount === order.item.price" class="cart__wrapper__inner__item__price">{{order.item.price | currency_pipe}}</p>
                 <p class="cart__wrapper__inner__item__amount">Số lượng: {{order.amount}}</p>
                 <p class="cart__wrapper__inner__item__size">Size: {{order.size}}</p>
                 <div class="cart__wrapper__inner__item__delete" (click)="removeFromCart(order.item.item_id,order.size)" >Xóa</div>

@@ -1,1 +1,77 @@
-<p>homepage works!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+ 
+ <section class="view">
+    <button class="btn btn-primary" (click)="getLayout()">Làm mới</button>
+    <button class="btn btn-success" (click)="save()" [ngClass]="{'none':isSaved}">Lưu</button>
+    <p style="font-size: 20px; color: red;" [ngClass]="{'none':isSaved}">Các thay đổi chưa được lưu!!</p>
+    <mat-expansion-panel *ngIf="tempLayout?.homepage !== undefined" color="primary">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Trang chủ
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Những danh mục được chọn dưới đây sẽ xuất hiện trên trang chủ theo thứ tự, với tên là tên của danh mục đó</p>
+        <button class="btn btn-primary" (click)="openWindow(tempLayout.homepage)">Chọn danh mục hiển thị</button>
+        <p>Danh mục hiện có:</p>
+        <p *ngFor="let category of tempLayout.homepage,index as i">STT:{{i}}|Tên: {{category.name}}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf="tempLayout?.all !== undefined" color="primary">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Tất cả sản phẩm
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Những danh mục dưới đây sẽ được xếp vào từng danh mục khi khách hàng vào trang Tất cả sản phẩm.</p>
+        <button class="btn btn-primary" (click)="openWindow(tempLayout.all)">Chọn danh mục hiển thị</button>
+        <p>Danh mục hiện có:</p>
+        <p *ngFor="let category of tempLayout.all,index as i">STT:{{i}}|Tên: {{category.name}}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel color="primary">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Ưu đãi hàng tuần
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Chọn một danh mục để hiển thị ở mục Ưu đãi hàng tuần</p>
+        <select class="form-control" (change)="onOptionChange($event)">
+            <option *ngFor="let category of categoryArray" [selected]="category._id === tempLayout.weekly._id" [value]="category._id">{{category.name}}</option>
+        </select>
+    </mat-expansion-panel>
+ </section>
+ <div class="category" [ngClass]="{'category--visible':isWindowOpened}">
+    <div class="category__wrapper">
+      <p class="category__title">Thay đổi sản phẩm</p>
+      Sản phẩm hiện tại
+        <div class="category__wrapper__inner-sel">
+          <table class="category__wrapper__inner-sel__table table">
+            <tr>
+              <th>STT</th>
+              <th>Tên sản phẩm</th>
+              <th>Lên trên</th>
+              <th>Xuống dưới</th>
+              <th>Hành động</th>
+            </tr>
+            <tr *ngFor="let category of selectedData,index as i">
+              <td>{{i+1}}</td>
+              <td>{{category.name}}</td>
+              <td><button style="margin: 0px;" (click)="moveCategoryUp(category)">Lên</button></td>
+              <td><button style="margin: 0px;" (click)="moveCategoryDown(category)">Xuống</button></td>
+              <td><button style="margin: 0px;" (click)="removeCategory(category)">Xóa</button></td>
+            </tr>
+          </table>
+        </div>
+        <div class="category__wrapper__inner-curr">
+          <table class="category__wrapper__inner-curr__table table">
+            <tr>
+              <th>Tên danh mục</th>
+              <th>Hành động</th>
+            </tr>
+            <tr *ngFor="let category of categoryArray">
+              <td>{{category.name}}</td>
+              <td><button style="margin: 0px;" (click)="addCategory(category)">Thêm</button></td>
+            </tr>
+          </table>
+        </div>
+        <button (click)="this.isWindowOpened= false;" class="category__wrapper__submit btn btn-success">Lưu</button>
+    </div>
+  </div>

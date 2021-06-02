@@ -59,7 +59,11 @@ export class HeaderComponent implements OnInit {
   getTotalPrice():number {
     var total:number = 0;
     this.cartData.forEach(order=>{
-      total += order.item.price*order.amount;
+      if (order.item.discount !== null) {
+        total += order.item.discount*order.amount;
+      } else {
+        total += order.item.price*order.amount;
+      }
     })
     return total;
   }
