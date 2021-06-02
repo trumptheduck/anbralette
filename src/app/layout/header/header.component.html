@@ -7,10 +7,7 @@
     </div><br>
     <div class="drawer__menu">
         <p class="drawer__menu__item">+ NEW</p>
-        <p class="drawer__menu__item">+ Áo lót</p>
-        <p class="drawer__menu__item">+ Quần lót</p>
-        <p class="drawer__menu__item">+ Set bras</p>
-        <p class="drawer__menu__item">+ Đồ ngủ</p>
+        <p *ngFor="let category of layout.all" (click)="reload$.gotoAndReload('/listing',{category: category._id})" class="drawer__menu__item">+ {{category.name}}</p>
         <p class="drawer__menu__item">+ Góc EVA</p>
     </div>
 </section>
@@ -51,10 +48,12 @@
     <img (click)="reload$.gotoAndReload('/')" src="../../../assets/images/brand.png" class="header-desktop__logo">
     <div class="header-desktop__menu">
         <p class="header-desktop__menu__item">NEW</p>
-        <p class="header-desktop__menu__item">ÁO LÓT</p>
-        <p class="header-desktop__menu__item">QUẦN LÓT</p>
-        <p class="header-desktop__menu__item">SET BRAS</p>
-        <p class="header-desktop__menu__item">ĐỒ NGỦ</p>
+        <div *ngFor="let category of layout.all" class="header-desktop__menu__item"><p (click)="reload$.gotoAndReload('/listing',{category: category._id})">{{category.name}}</p>
+            <div class="header-desktop__menu__item__dropdown">
+                <p *ngFor="let subcat of category.children" (click)="reload$.gotoAndReload('/listing',{category: category._id,subcategory: subcat._id})" class="header-desktop__menu__item__dropdown__item">{{subcat.name | uppercase}}</p>
+            </div>
+        </div>
+        <div class="header-desktop__menu__item">Góc EVA</div>
     </div>
     <div class="header-desktop__cart"><mat-icon (click)="isCartOpened = true">shopping_basket</mat-icon></div>
     <div class="header-desktop__user" (click)="reload$.gotoAndTrace('/auth/login')"><mat-icon>account_circle</mat-icon></div>

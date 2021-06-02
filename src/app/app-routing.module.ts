@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { DisplayComponent } from './display/display.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ListingComponent } from './listing/listing.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,10 @@ const routes: Routes = [
       {
         path: "display",
         component: DisplayComponent,
+      },
+      {
+        path: "listing",
+        component: ListingComponent,
       },
     ]
   },
@@ -51,7 +57,11 @@ const routes: Routes = [
         pathMatch: "full",
       }
     ]
-  }
+  },
+  {
+    path: "checkout",
+    component: CheckoutComponent,
+  },
 ];
 
 @NgModule({

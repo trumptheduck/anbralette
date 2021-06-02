@@ -1,0 +1,35 @@
+<section class="pad"></section>
+<section class="folder">
+    <p (click)="reload$.gotoAndReload('/listing',{category: selectedCat._id})" class="folder__parent">{{selectedCat.name | uppercase}}</p>
+    <p *ngFor="let subcat of selectedCat.children" (click)="reload$.gotoAndReload('/listing',{category: selectedCat._id,subcategory:subcat._id})" [ngClass]="{'selected':!isAll&&selectedSubcat._id===subcat._id}" class="folder__children">{{subcat.name}}</p>
+</section>
+<section *ngIf="isAll" class="collection">
+    <div *ngIf="getItemArray(selectedCat) !== undefined" class="collection__inner">
+        <div *ngFor="let item of getItemArray(selectedCat)" class="collection__inner__item">
+            <a routerLink="/display" [queryParams]="{id: item.item_id}">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="collection__inner__item__image">
+                <div class="collection__inner__item__desc">
+                    <p class="collection__inner__item__desc__name">{{item.name}}</p>
+                    <p  *ngIf="item.discount === null||item.discount === item.price" class="collection__inner__item__desc__price">{{item.price | currency_pipe}}</p>
+                    <div *ngIf="item.discount !== null&&item.discount !== item.price" class="collection__inner__item__desc__price collection__inner__item__desc__price--discount"
+                    ><div class="sale">{{item.price | currency_pipe}} <div class="sale__percent">-{{calculateDiscount(item.price,item.discount)}}%</div> </div>{{ item.discount | currency_pipe}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<section *ngIf="!isAll" class="collection">
+    <div *ngIf="selectedSubcat?.item !== undefined" class="collection__inner">
+        <div *ngFor="let item of selectedSubcat.item" class="collection__inner__item">
+            <a routerLink="/display" [queryParams]="{id: item.item_id}">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="collection__inner__item__image">
+                <div class="collection__inner__item__desc">
+                    <p class="collection__inner__item__desc__name">{{item.name}}</p>
+                    <p  *ngIf="item.discount === null||item.discount === item.price" class="collection__inner__item__desc__price">{{item.price | currency_pipe}}</p>
+                    <div *ngIf="item.discount !== null&&item.discount !== item.price" class="collection__inner__item__desc__price collection__inner__item__desc__price--discount"
+                    ><div class="sale">{{item.price | currency_pipe}} <div class="sale__percent">-{{calculateDiscount(item.price,item.discount)}}%</div> </div>{{ item.discount | currency_pipe}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

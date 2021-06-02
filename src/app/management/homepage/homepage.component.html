@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
  
- <section class="view">
+ <section class="view" *ngIf="tempLayout?.homepage !== undefined&&tempLayout?.all !== undefined">
     <button class="btn btn-primary" (click)="getLayout()">Làm mới</button>
     <button class="btn btn-success" (click)="save()" [ngClass]="{'none':isSaved}">Lưu</button>
     <p style="font-size: 20px; color: red;" [ngClass]="{'none':isSaved}">Các thay đổi chưa được lưu!!</p>
@@ -33,7 +33,11 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <p>Chọn một danh mục để hiển thị ở mục Ưu đãi hàng tuần</p>
-        <select class="form-control" (change)="onOptionChange($event)">
+        <select *ngIf="tempLayout.weekly === null" class="form-control" (change)="onOptionChange($event)">
+            <option selected [value]="">Trống</option>
+            <option *ngFor="let category of categoryArray" [value]="category._id">{{category.name}}</option>
+        </select>
+        <select *ngIf="tempLayout.weekly !== null" class="form-control" (change)="onOptionChange($event)">
             <option *ngFor="let category of categoryArray" [selected]="category._id === tempLayout.weekly._id" [value]="category._id">{{category.name}}</option>
         </select>
     </mat-expansion-panel>

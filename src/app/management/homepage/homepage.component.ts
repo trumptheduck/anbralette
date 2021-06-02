@@ -22,6 +22,13 @@ export class HomepageComponent implements OnInit {
       flashsale: "",
       weekly: ""
     }
+    this.tempLayout = {
+      homepage: [],
+      all: [],
+      flashsale: "",
+      weekly: ""
+    }
+    
   }
   openWindow(selectedData) {
     this.selectedData = selectedData;

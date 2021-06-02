@@ -19,15 +19,11 @@ export class HomeComponent implements OnInit {
   back:any = environment.api_url;
   constructor(private API : ApiService) { 
     this.itemArray = [];
-    this.API.get("/apis/items").subscribe((res)=>{
-      this.itemArray = res;
-      console.log(res);
-    })
-    this.API.get("/apis/categories").subscribe((res)=>{
-      this.categoryArray = res;
-      console.log(res);
-      this.getItemArray(this.categoryArray[4])
-    })
+    this.layout = {
+      homepage: [],
+      all: [],
+      weekly: ""
+    }
     this.getLayout()
     
   }
@@ -51,7 +47,6 @@ export class HomeComponent implements OnInit {
   getLayout() {
     this.API.get("/apis/layout").subscribe((res)=>{
         this.layout = res;
-        console.log(res)
     })
   }
   ngOnInit(): void {

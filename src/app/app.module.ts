@@ -28,6 +28,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ListingComponent } from './listing/listing.component';
+import { AllComponent } from './all/all.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     AuthComponent,
     LoginComponent,
     RegisterComponent,
+    ListingComponent,
+    AllComponent,
+    CheckoutComponent,
 
   ],
   imports: [

@@ -1,0 +1,42 @@
+<section class="cart">
+    <div class="cart__wrapper">
+        <p class="cart__wrapper__details">Bạn đang có <b>{{getTotalAmount()}}</b> sản phẩm.</p>
+        <div class="cart__wrapper__inner">
+            <div *ngFor="let order of cartData" class="cart__wrapper__inner__item">
+                <img [src]="back + order.item.images[0]" class="cart__wrapper__inner__item__image">
+                <p class="cart__wrapper__inner__item__name">{{order.item.name}}</p>
+                <div *ngIf="order.item.discount!==null&&order.item.discount !== order.item.price" class="cart__wrapper__inner__item__price">{{order.item.discount | currency_pipe}}<p style="text-decoration: line-through;font-size: 10px; color: grey">{{order.item.price | currency_pipe}}</p></div>
+                <p *ngIf="order.item.discount===null||order.item.discount === order.item.price" class="cart__wrapper__inner__item__price">{{order.item.price | currency_pipe}}</p>
+                <p class="cart__wrapper__inner__item__amount">Số lượng: {{order.amount}}</p>
+                <p class="cart__wrapper__inner__item__size">Size: {{order.size}}</p>
+            </div>
+        </div>
+        <div class="cart__wrapper__info">
+            <div style="overflow: hidden;">
+                <p class="cart__wrapper__info__label">TẠM TÍNH:</p>
+                <p class="cart__wrapper__info__total">{{getTotalPrice() | currency_pipe}}</p>
+            </div>
+            <div style="overflow: hidden;">
+                <p class="cart__wrapper__info__label">PHÍ SHIP:</p>
+                <p class="cart__wrapper__info__total">{{33000 | currency_pipe}}</p>
+            </div>
+            <div style="overflow: hidden;">
+                <p class="cart__wrapper__info__label">TỔNG:</p>
+                <p class="cart__wrapper__info__total">{{33000 + getTotalPrice()| currency_pipe}}</p>
+            </div>
+        </div>
+        <div class="cart__wrapper__checkout"><div class="cart__wrapper__checkout__inner">ĐẶT HÀNG</div></div>
+    </div>
+</section>
+<section class="info">
+    <p class="info__title"></p>
+    <form>
+        <input type="text" class="info__name">
+        <input type="text" class="info__phone">
+        <input type="text" class="info__province">
+        <input type="text" class="info__address">
+        <input type="text" class="info__note">
+        <p class="info__subtitle"></p>
+        <input checked type="checkbox"><p>Thanh toán khi nhận hàng(COD)</p>
+    </form>
+</section>
