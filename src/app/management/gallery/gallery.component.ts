@@ -53,7 +53,7 @@ export class GalleryComponent implements OnInit {
    }
   fetchImageData(): void {
     this.API.get("/apis/files").subscribe((res)=>{
-      this.imageArray = res.files;
+      this.imageArray = res.files.reverse();
       console.log("img",res)
       var isExisted = this.imageArray.find(elem => elem === ".gitkeep");
       if (isExisted !== undefined) {

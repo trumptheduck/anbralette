@@ -1,0 +1,134 @@
+.pad {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(78, 78, 78);
+}
+
+.main {
+    padding: 10px;
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__title {
+        font-size: 40px;
+        line-height: 40px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        column-gap: 20px;
+
+        &__item {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-color: blueviolet;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            &__affiliated {
+                position: absolute;
+                top: 20px;
+                right: 10px;
+                background-color: rgba(211, 211, 211, 0.8);
+                padding: 10px;
+                width: fit-content;
+                height: 15px;
+                line-height: 15px;
+                font-size: 10px;
+                text-align: center;
+                overflow: hidden;
+                transition-duration: 0.3s;
+
+                &:hover {
+                height: fit-content;
+                }
+                &__inner {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    & img {
+                        opacity: 1;
+                        width: 80px;
+                        height: auto;
+    
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 500px) { 
+    .pad {
+        height: 100px;
+    }
+    .main {
+        padding: 10px;
+        font-family: CocoGothic;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    
+        &__title {
+            font-size: 40px;
+            line-height: 40px;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        &__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 20px;
+            column-gap: 20px;
+    
+            &__item {
+                position: relative;
+                width: 400px;
+                height: 500px;
+                background-color: blueviolet;
+                background-size: cover;
+                background-repeat: no-repeat;
+    
+                &__affiliated {
+                    position: absolute;
+                    top: 20px;
+                    right: 10px;
+                    background-color: rgba(211, 211, 211, 0.8);
+                    padding: 10px;
+                    width: fit-content;
+                    height: 15px;
+                    line-height: 15px;
+                    font-size: 10px;
+                    text-align: center;
+                    overflow: hidden;
+                    transition-duration: 0.3s;
+                    cursor: pointer;
+    
+                    &:hover {
+                    height: fit-content;
+                    }
+                    &__inner {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        & img {
+                            opacity: 1;
+                            width: 80px;
+                            height: auto;
+        
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

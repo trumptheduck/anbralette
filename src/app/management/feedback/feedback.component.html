@@ -1,0 +1,43 @@
+<div id="coupon" class="view">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <table class="table">
+        <button (click)="openWindow()" class="btn btn-primary">Thêm feedback</button>
+        <tr>
+            <th>Sản phẩm</th>
+            <th>Ảnh</th>
+            <th>Xóa</th>
+        </tr>
+        <tr *ngFor="let feedback of feedbackArray">
+            <td>{{feedback.item.name}}</td>
+            <td><img width="100" height="100" [src]="back + feedback.image"></td>
+            <td><span (click)="removeFeedback(feedback)" class="material-icons">delete</span></td>
+        </tr>
+    </table>
+    </div>
+    <div class="new" [ngClass]="{'new--visible':isWindowOpened}">
+        <div class="new__inner">
+          <p class="new__inner__title">Thêm feedback</p>
+          <div class="item__wrapper">
+            <table class="item__wrapper__inner-sel__table table">
+                <tr>
+                  <th>ID</th>
+                  <th>Tên sản phẩm</th>
+                  <th>Hành động</th>
+                </tr>
+                <tr *ngFor="let item of itemArray">
+                  <td>{{item.item_id}}</td>
+                  <td>{{item.name}}</td>
+                  <td><button style="margin: 0px;" (click)="chooseItem(item)">Chọn</button></td>
+                </tr>
+              </table>
+          </div>
+            <div id="inner-gallery">
+                <img *ngFor="let imgsrc of imageArray,index as i" [src]="back+'/static/contents/'+imgsrc" (click)="chooseImage(i)" class="item">
+            </div>
+            <p>Đã chọn:</p>
+            <img width="100" [src]="back +'/static/contents/'+selectedImage">
+            <p>SP: {{selectedItem?.name}}</p>
+          <button (click)="addFeedback()" class="btn btn-success new__inner__submit">Lưu</button>
+          <button (click)="isWindowOpened = false" class="btn btn-secondary new__inner__cancel">Hủy bỏ</button>
+        </div>
+      </div>

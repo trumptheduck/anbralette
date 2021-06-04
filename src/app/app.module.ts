@@ -32,6 +32,7 @@ import { ListingComponent } from './listing/listing.component';
 import { AllComponent } from './all/all.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
     AllComponent,
     CheckoutComponent,
     InvoiceComponent,
+    FeedbackComponent,
 
   ],
   imports: [

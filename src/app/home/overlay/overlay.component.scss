@@ -16,6 +16,8 @@
         border-bottom-left-radius: 8px;
         color: wheat;
         overflow: hidden;
+        user-select: none;
+        cursor: pointer;
     }
     &__cart {
         position: fixed;

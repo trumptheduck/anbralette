@@ -60,8 +60,9 @@ export class AllComponent implements OnInit {
     if (query !== "") {
       this.filteredItemArray = this.itemArray.slice().filter(elem => {
         let result = false;
+        var regex = new RegExp(query,"i")
           for (let key in elem) {
-            if (this.safeToString(elem[key]).search(query) !== -1) {
+            if (this.safeToString(elem[key]).search(regex) !== -1) {
               if (key === "name"||key === "item_id") {
                 result = true;
               }

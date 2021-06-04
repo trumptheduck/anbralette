@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/core/services/cart.service';
+import { ReloadService } from 'src/app/core/services/reload.service';
 
 @Component({
   selector: 'app-overlay',
@@ -10,7 +11,7 @@ export class OverlayComponent implements OnInit {
   isBannerVisible: boolean = true;
   isDiscountVisible: boolean = true;
   cartData:any;
-  constructor(private cart$: CartService) { 
+  constructor(private cart$: CartService,public reload$: ReloadService) { 
     this.cartData = JSON.parse(window.localStorage.getItem("cart-data"));
     this.cart$.cartObservable.subscribe((data)=>{
       this.cartData = data;

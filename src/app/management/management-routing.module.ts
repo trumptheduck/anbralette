@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FeedbackComponent } from '../management/feedback/feedback.component';
 import { CategoryComponent } from './category/category.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: "coupon",
         component: CouponComponent,
+      },
+      {
+        path: "feedback",
+        component: FeedbackComponent,
       },
     ]
   },

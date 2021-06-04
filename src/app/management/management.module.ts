@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CouponComponent } from './coupon/coupon.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 
@@ -33,6 +34,7 @@ import { CouponComponent } from './coupon/coupon.component';
     CategoryComponent,
     HomepageComponent,
     CouponComponent,
+    FeedbackComponent,
   ],
   imports: [
     CommonModule,

@@ -7,6 +7,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { DisplayComponent } from './display/display.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeComponent } from './home/home.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: "all",
         component: AllComponent
+      },
+      {
+        path: "feedback",
+        component: FeedbackComponent
       },
     ]
   },

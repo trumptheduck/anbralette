@@ -1,5 +1,5 @@
 <section class="overlay">
-    <div class="overlay__feedback">Feedback</div>
+    <div (click)="reload$.goto('/feedback')" class="overlay__feedback">Feedback</div>
     <div class="overlay__discount" [ngClass]="{'overlay__discount--closed':!isDiscountVisible}">
         <div class="overlay__discount__close"><mat-icon (click)="isDiscountVisible = false">close</mat-icon></div>
         <div class="overlay__discount__title">GIẢM THÊM 25K KHI ĐẶT HÀNG QUA WEB</div>
