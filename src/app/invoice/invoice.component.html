@@ -1,0 +1,49 @@
+<section class="main">
+    <div class="main__inner">
+        <div class="main__inner__item">
+            <section class="cart">
+                <p class="info__title">ĐẶT HÀNG THÀNH CÔNG!</p>
+                <div class="cart__wrapper">
+                    <div class="cart__wrapper__inner">
+                        <div *ngFor="let order of orderData.payload" class="cart__wrapper__inner__item">
+                            <img [src]="back + order.item.images[0]" class="cart__wrapper__inner__item__image">
+                            <p class="cart__wrapper__inner__item__name">{{order.item.name}}</p>
+                            <div *ngIf="order.item.discount!==null&&order.item.discount !== order.item.price" class="cart__wrapper__inner__item__price">{{order.item.discount | currency_pipe}}<p style="text-decoration: line-through;font-size: 10px; color: grey">{{order.item.price | currency_pipe}}</p></div>
+                            <p *ngIf="order.item.discount===null||order.item.discount === order.item.price" class="cart__wrapper__inner__item__price">{{order.item.price | currency_pipe}}</p>
+                            <p class="cart__wrapper__inner__item__amount">Số lượng: {{order.amount}}</p>
+                            <p class="cart__wrapper__inner__item__size">Size: {{order.size}}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="main__inner__item">
+            <section class="info">
+                <p class="info__title">ĐƠN HÀNG CỦA BẠN</p>
+                <form>
+                    <p>Mã đơn hàng: {{orderData._id}}</p>
+                    <p>Họ tên: {{orderData.name}}</p>
+                    <p>Số điện thoại: {{orderData.phone}}</p>
+                    <p>Tỉnh/thành phố: {{orderData.province}}</p>
+                    <p>Địa chỉ: {{orderData.address}}</p> 
+                    <p>Ghi chú: {{orderData.note}}</p>
+                    <p>Phương thức thanh toán: {{orderData.payment}}</p>
+                    <p>Thời gian: {{orderData.date}}</p>
+                    <p>Trạng thái: {{orderData.status}}</p>
+                </form>
+            </section>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+            <section class="cart">
+                <div class="cart__wrapper">
+                    <div class="cart__wrapper__info">
+                        <div style="overflow: hidden;">
+                            <p class="cart__wrapper__info__label">TỔNG:</p>
+                            <p class="cart__wrapper__info__total">{{orderData.total| currency_pipe}}</p>
+                        </div>
+                    </div>
+                   <div (click)="home()" class="cart__wrapper__checkout"><div class="cart__wrapper__checkout__inner">VỀ TRANG CHỦ</div></div>
+                </div>
+            </section>
+        </div>
+        </div> 
+</section>

@@ -13,7 +13,9 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export class ProductComponent implements OnInit {
   public Editor = ClassicEditor;
   public EditorData = ""
-
+  pageIndex: number=0;
+  maxPage:number;
+  pageArray:Item[];
   setHeight(editor) {
     editor.editing.view.change((writer) => {
       writer.setStyle(
@@ -23,7 +25,31 @@ export class ProductComponent implements OnInit {
       );
       });
   }
-
+  updatePage() {
+    this.pageArray = this.itemArray.slice(this.pageIndex*20,this.pageIndex*20+20)
+  }
+  nextPage() {
+    if (this.pageIndex + 1 > this.maxPage) {
+      return
+    } else {
+      this.pageIndex ++
+      console.log(this.pageIndex)
+      this.updatePage()
+    }
+  }
+  onPageChange(event) {
+    this.pageIndex = parseInt(event.target.options[event.target.selectedIndex].value)
+    this.updatePage()
+  }
+  previousPage() {
+    if (this.pageIndex - 1 < 0) {
+      return
+    } else {
+      this.pageIndex --
+      console.log(this.pageIndex)
+      this.updatePage()
+    }
+  }
   back:string = environment.api_url;
   imageSelector_selIndex:number;
   imageSelector_tempArray:string[];
@@ -89,6 +115,8 @@ export class ProductComponent implements OnInit {
     this.API.get("/apis/items").subscribe((res)=>{
       this.itemArray = res;
       console.log(res)
+      this.maxPage = this.ngCeil(this.itemArray.length/20);
+      this.updatePage()
     })
   }
   fetchImageData(): void {
@@ -155,5 +183,11 @@ export class ProductComponent implements OnInit {
   }
   selectImages_add():void {
     this.imageSelector_tempArray.push("")
+  }
+  ngForLoop(times:number) {
+   return Array(times).fill(0).map((x,i)=>i);
+  }
+  ngCeil(number:number) {
+    return Math.ceil(number);
   }
 }

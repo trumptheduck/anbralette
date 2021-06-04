@@ -105,15 +105,7 @@
         font-size: 20px;
     }
     & form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 10px;
-
-        & input, & select {
-            margin-bottom: 5px;
-        }
+        font-size: 15px;
     }
     &__coupon {
         display: flex;

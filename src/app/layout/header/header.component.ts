@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
     })
   }
   toggleDrawer():void {
+    this.getLayout()
     this.isDrawerOpened = !this.isDrawerOpened;
     if (!this.isDrawerOpened) {
       setTimeout(()=>{

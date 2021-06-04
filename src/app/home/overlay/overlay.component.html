@@ -3,10 +3,9 @@
     <div class="overlay__discount" [ngClass]="{'overlay__discount--closed':!isDiscountVisible}">
         <div class="overlay__discount__close"><mat-icon (click)="isDiscountVisible = false">close</mat-icon></div>
         <div class="overlay__discount__title">GIẢM THÊM 25K KHI ĐẶT HÀNG QUA WEB</div>
-        <div class="overlay__discount__signup">Đăng ký</div>
     </div>
     <div class="overlay__banner" [ngClass]="{'overlay__banner--closed':!isBannerVisible}">
-        <img src="../../../assets/images/popup.png" class="overlay__banner__image">
+        <img src="../../../assets/images/popup.jpg" class="overlay__banner__image">
         <div class="overlay__banner__close"><mat-icon (click)="isBannerVisible = false">close</mat-icon></div>
     </div>
     <div class="overlay__cart"><mat-icon (click)="openCart()" [matBadge]="getTotalAmount()" matBadgeSize="small">shopping_basket</mat-icon></div>

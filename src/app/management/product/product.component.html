@@ -6,6 +6,13 @@
   rel="stylesheet"> 
 
 <div id="prod-list" class="view">
+    <div class="page">
+        <button (click)="previousPage()" class="page__previous">Trang trước</button>
+        <select (change)="onPageChange($event)">
+            <option *ngFor="let index of ngForLoop(this.maxPage);index as i" [selected]="pageIndex === i" [value]="i">Trang {{i+1}}</option>
+        </select>
+        <button (click)="nextPage()" class="page__next">Trang tiếp</button>
+    </div>
     <div id="filter">
         <input class="form-control" id="search" placeholder="Search...">
     </div>
@@ -18,7 +25,7 @@
             <th scope="col">Hình ảnh</th>
             <th scope="col"><span class="material-icons" (click)="openItemDrawerAsNew()">note_add</span>Thêm</th>
         </tr>
-        <tr *ngFor="let item of itemArray">
+        <tr *ngFor="let item of pageArray">
             <td>{{item.item_id}}</td>
             <td>{{item.name}}</td>
             <td>{{item.price}}</td>

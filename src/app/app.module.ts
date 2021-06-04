@@ -31,6 +31,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ListingComponent } from './listing/listing.component';
 import { AllComponent } from './all/all.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ListingComponent,
     AllComponent,
     CheckoutComponent,
+    InvoiceComponent,
 
   ],
   imports: [

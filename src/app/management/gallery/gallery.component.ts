@@ -15,12 +15,42 @@ export class GalleryComponent implements OnInit {
   imageArray: string[];
   formData: FormGroup;
   constructor(private API: ApiService) { }
-
+  pageIndex: number=0;
+  maxPage:number;
+  pageArray:string[];
+  updatePage() {
+    this.pageArray = this.imageArray.slice(this.pageIndex*30,this.pageIndex*30+20)
+  }
+  nextPage() {
+    if (this.pageIndex + 1 > this.maxPage) {
+      return
+    } else {
+      this.pageIndex ++
+      console.log(this.pageIndex)
+      this.updatePage()
+    }
+  }
+  onPageChange(event) {
+    this.pageIndex = parseInt(event.target.options[event.target.selectedIndex].value)
+    this.updatePage()
+  }
+  previousPage() {
+    if (this.pageIndex - 1 < 0) {
+      return
+    } else {
+      this.pageIndex --
+      console.log(this.pageIndex)
+      this.updatePage()
+    }
+  }
   ngOnInit(): void {
     this.imageGallery_deleteArray=[];
     this.imageArray=[];
     this.fetchImageData()
   }
+  ngForLoop(times:number) {
+    return Array(times).fill(0).map((x,i)=>i);
+   }
   fetchImageData(): void {
     this.API.get("/apis/files").subscribe((res)=>{
       this.imageArray = res.files;
@@ -29,6 +59,8 @@ export class GalleryComponent implements OnInit {
       if (isExisted !== undefined) {
         this.imageArray.splice(this.imageArray.indexOf(isExisted),1) 
       }
+      this.maxPage = Math.ceil(this.imageArray.length/30);
+      this.updatePage()
     })
   }
   imageGallery_deleteItem(index:number) : void {

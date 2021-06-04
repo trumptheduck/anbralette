@@ -3,7 +3,6 @@ import SwiperCore from 'swiper/core';
 import { ApiService } from '../core/services/api.service';
 import { environment } from '../../environments/environment';
 import { Item } from '../core/models/item.model';
-import { ContentObserver } from '@angular/cdk/observers';
 
 
 @Component({

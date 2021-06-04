@@ -1,42 +1,128 @@
-<section class="cart">
-    <div class="cart__wrapper">
-        <p class="cart__wrapper__details">Bạn đang có <b>{{getTotalAmount()}}</b> sản phẩm.</p>
-        <div class="cart__wrapper__inner">
-            <div *ngFor="let order of cartData" class="cart__wrapper__inner__item">
-                <img [src]="back + order.item.images[0]" class="cart__wrapper__inner__item__image">
-                <p class="cart__wrapper__inner__item__name">{{order.item.name}}</p>
-                <div *ngIf="order.item.discount!==null&&order.item.discount !== order.item.price" class="cart__wrapper__inner__item__price">{{order.item.discount | currency_pipe}}<p style="text-decoration: line-through;font-size: 10px; color: grey">{{order.item.price | currency_pipe}}</p></div>
-                <p *ngIf="order.item.discount===null||order.item.discount === order.item.price" class="cart__wrapper__inner__item__price">{{order.item.price | currency_pipe}}</p>
-                <p class="cart__wrapper__inner__item__amount">Số lượng: {{order.amount}}</p>
-                <p class="cart__wrapper__inner__item__size">Size: {{order.size}}</p>
-            </div>
+<section class="main">
+    <div class="main__inner">
+        <div class="main__inner__item">
+            <section class="cart">
+                <div class="cart__wrapper">
+                    <p class="cart__wrapper__details">Bạn đang có <b>{{getTotalAmount()}}</b> sản phẩm.</p>
+                    <div class="cart__wrapper__inner">
+                        <div *ngFor="let order of cartData" class="cart__wrapper__inner__item">
+                            <img [src]="back + order.item.images[0]" class="cart__wrapper__inner__item__image">
+                            <p class="cart__wrapper__inner__item__name">{{order.item.name}}</p>
+                            <div *ngIf="order.item.discount!==null&&order.item.discount !== order.item.price" class="cart__wrapper__inner__item__price">{{order.item.discount | currency_pipe}}<p style="text-decoration: line-through;font-size: 10px; color: grey">{{order.item.price | currency_pipe}}</p></div>
+                            <p *ngIf="order.item.discount===null||order.item.discount === order.item.price" class="cart__wrapper__inner__item__price">{{order.item.price | currency_pipe}}</p>
+                            <p class="cart__wrapper__inner__item__amount">Số lượng: {{order.amount}}</p>
+                            <p class="cart__wrapper__inner__item__size">Size: {{order.size}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info__coupon"><input [(ngModel)]="coupon" class="form-control" placeholder="Coupon"><button class="btn btn-primary" (click)="getCoupon()">Áp dụng</button></div>
+            </section>
         </div>
-        <div class="cart__wrapper__info">
-            <div style="overflow: hidden;">
-                <p class="cart__wrapper__info__label">TẠM TÍNH:</p>
-                <p class="cart__wrapper__info__total">{{getTotalPrice() | currency_pipe}}</p>
-            </div>
-            <div style="overflow: hidden;">
-                <p class="cart__wrapper__info__label">PHÍ SHIP:</p>
-                <p class="cart__wrapper__info__total">{{33000 | currency_pipe}}</p>
-            </div>
-            <div style="overflow: hidden;">
-                <p class="cart__wrapper__info__label">TỔNG:</p>
-                <p class="cart__wrapper__info__total">{{33000 + getTotalPrice()| currency_pipe}}</p>
-            </div>
+        <div class="main__inner__item">
+            <section class="info">
+                <p class="info__title">THÔNG TIN THANH TOÁN</p>
+                <form [formGroup]="formData">
+                    <input formControlName="name" type="text" placeholder="Ví dụ: Nguyễn Văn A" class="info__name form-control">
+                    <input formControlName="phone" type="text" placeholder="Ví dụ: 0987654321" class="info__phone form-control">
+                    <input formControlName="province" type="text" hidden>
+                    <input formControlName="time" type="text" hidden>
+                    <input formControlName="coupon" type="text" hidden>
+                    <select type="text" (change)="onProvinceChange($event)"  class="info__province form-control">
+                        <option>Chọn tỉnh/thành</option>
+                        <option>An Giang</option>
+                        <option>Bà Rịa Vũng Tàu</option>
+                        <option>Bạc Liêu</option>
+                        <option>Bắc Kạn</option>
+                        <option>Bắc Giang</option>
+                        <option>Bắc Ninh</option>
+                        <option>Bến Tre</option>
+                        <option>Bình Dương</option>
+                        <option>Bình Định</option>
+                        <option>Bình Phước</option>
+                        <option>Bình Thuận</option>
+                        <option>Cà Mau</option>
+                        <option>Cao Bằng</option>
+                        <option>Cần Thơ</option>
+                        <option>Đà Nẵng</option>
+                        <option>Điện Biên</option>
+                        <option>Đắk Lắk</option>
+                        <option>Đắc Nông</option>
+                        <option>Đồng Nai</option>
+                        <option>Đồng Tháp</option>
+                        <option>Gia Lai</option>
+                        <option>Hà Giang</option>
+                        <option>Hà Nam</option>
+                        <option>Hà Nội</option>
+                        <option>Hà Tĩnh</option>
+                        <option>Hải Dương</option>
+                        <option>Hải Phòng</option>
+                        <option>Hậu Giang</option>
+                        <option>Hòa Bình</option>
+                        <option>TP. Hồ Chí Minh</option>
+                        <option>Hưng Yên</option>
+                        <option>Khánh Hoà</option>
+                        <option>Kiên Giang</option>
+                        <option>Kon Tum</option>
+                        <option>Lai Châu</option>
+                        <option>Lạng Sơn</option>
+                        <option>Lào Cai</option>
+                        <option>Lâm Đồng</option>
+                        <option>Long An</option>
+                        <option>Nam Định</option>
+                        <option>Nghệ An</option>
+                        <option>Ninh Bình</option>
+                        <option>Ninh Thuận</option>
+                        <option>Phú Thọ</option>
+                        <option>Phú Yên</option>
+                        <option>Quảng Bình</option>
+                        <option>Quảng Nam</option>
+                        <option>Quảng Ngãi</option>
+                        <option>Quảng Ninh</option>
+                        <option>Quảng Trị</option>
+                        <option>Sóc Trăng</option>
+                        <option>Sơn La</option>
+                        <option>Tây Ninh</option>
+                        <option>Thái Bình</option>
+                        <option>Thái Nguyên</option>
+                        <option>Thanh Hoá</option>
+                        <option>Thừa Thiên Huế</option>
+                        <option>Tiền Giang</option>
+                        <option>Trà Vinh</option>
+                        <option>Tuyên Quang</option>
+                        <option>Vĩnh Long</option>
+                        <option>Vĩnh Phúc</option>
+                        <option>Yên Bái</option>
+                    </select>
+                    <input formControlName="address" type="text" placeholder="Ví dụ: Số 10 Ngõ 50 Đường ABC" class="info__address form-control">
+                    <textarea formControlName="note" type="text" placeholder="Ví dụ: Chuyển hàng ngoài giờ hành chính" class="info__note form-control" rows="3"></textarea>
+                    <p class="info__subtitle"></p>
+                    <div class="info__payment"><input checked type="checkbox"><p>Thanh toán khi nhận hàng(COD)</p></div>
+                </form>
+            </section>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+            <section class="cart">
+                <div class="cart__wrapper">
+                    <div class="cart__wrapper__info">
+                        <div style="overflow: hidden;">
+                            <p class="cart__wrapper__info__label">TẠM TÍNH:</p>
+                            <p class="cart__wrapper__info__total">{{getTotalPrice() | currency_pipe}}</p>
+                        </div>
+                        <div style="overflow: hidden;">
+                            <p class="cart__wrapper__info__label">PHÍ SHIP:</p>
+                            <p class="cart__wrapper__info__total" *ngIf="shippingFee > 0">{{shippingFee | currency_pipe}}</p>
+                        </div>
+                        <div *ngIf="discount > 0" style="overflow: hidden;">
+                            <p class="cart__wrapper__info__label">GIẢM GIÁ:</p>
+                            <p class="cart__wrapper__info__total">-{{discount| currency_pipe}}</p>
+                        </div>
+                        <div style="overflow: hidden;">
+                            <p class="cart__wrapper__info__label">TỔNG:</p>
+                            <p class="cart__wrapper__info__total">{{shippingFee + getTotalPrice() - discount| currency_pipe}}</p>
+                        </div>
+                    </div>
+                    <div (click)="checkout()" class="cart__wrapper__checkout"><div class="cart__wrapper__checkout__inner">ĐẶT HÀNG</div></div>
+                </div>
+            </section>
         </div>
-        <div class="cart__wrapper__checkout"><div class="cart__wrapper__checkout__inner">ĐẶT HÀNG</div></div>
-    </div>
-</section>
-<section class="info">
-    <p class="info__title"></p>
-    <form>
-        <input type="text" class="info__name">
-        <input type="text" class="info__phone">
-        <input type="text" class="info__province">
-        <input type="text" class="info__address">
-        <input type="text" class="info__note">
-        <p class="info__subtitle"></p>
-        <input checked type="checkbox"><p>Thanh toán khi nhận hàng(COD)</p>
-    </form>
+        </div> 
 </section>

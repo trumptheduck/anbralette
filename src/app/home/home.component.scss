@@ -168,6 +168,45 @@
     }
 
 }
+.perks {
+    font-family: CocoGothic;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+        
+        &__item {
+            border: black solid 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 30px;
+            overflow: hidden;
+            padding: 10px;
+            &--none-on-mobile {
+                display: none;
+            }
+
+            &__icon {
+                width: 24px;
+                height: auto;
+                margin-right: 20px;
+            }
+            &__title {
+                font-size: 10px;
+                position: relative;
+                top: 6px;
+                line-height: 13px;
+            }
+        }
+    }
+}
 a {text-decoration: none; color: inherit}
 .weekly {
     z-index: 1;
@@ -529,6 +568,43 @@ a {text-decoration: none; color: inherit}
                     }
                 }
             }  
+        }
+    }
+    .perks {
+        font-family: CocoGothic;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+    
+        &__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 40px;
+            &--none-on-mobile {
+                display: grid;
+            }
+            &__item {
+                border: black solid 1px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                height: 100px;
+                overflow: hidden;
+                padding: 10px;
+    
+                &__icon {
+                    width: 3vw;
+                    height: auto;
+                    margin-right: 20px;
+                }
+                &__title {
+                    font-size: 18px;
+                    position: relative;
+                    top: 6px;
+                }
+            }
         }
     }
 }

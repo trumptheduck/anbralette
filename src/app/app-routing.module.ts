@@ -7,6 +7,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { DisplayComponent } from './display/display.component';
 import { HomeComponent } from './home/home.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ListingComponent } from './listing/listing.component';
 
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: "checkout",
     component: CheckoutComponent,
+  },
+  {
+    path: "invoice",
+    component: InvoiceComponent,
   },
 ];
 

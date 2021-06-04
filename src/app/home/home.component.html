@@ -2,7 +2,7 @@
 <img src="../../assets/images/thumb2.jpeg" class="banner2">
 <section class="motto">
     <img src="../../assets/images/brand.png" class="motto__image">
-    <p class="motto__tile">THẾ GIỚI NỘI Y CỦA RIÊNG BẠN</p>
+    <p class="motto__tile">FREE YOUR BREAST</p>
     <div class="motto__inner">
         <div class="motto__inner__measure">ĐO SIZE</div>
         <div class="motto__inner__buy">MUA NGAY</div>
@@ -11,7 +11,7 @@
 <section class="motto-desktop">
     <div class="motto-desktop__wrapper">
         <img src="../../assets/images/brand.png" class="motto-desktop__image">
-        <p class="motto-desktop__tile">THẾ GIỚI NỘI Y CỦA RIÊNG BẠN</p>
+        <p class="motto-desktop__tile">FREE YOUR BREAST</p>
         <div class="motto-desktop__inner">
             <div class="motto-desktop__inner__measure">ĐO SIZE</div>
             <div class="motto-desktop__inner__buy">MUA NGAY</div>
@@ -20,14 +20,14 @@
 </section>
 <section class="news">
     <div class="news__before">
-        <p class="news__before__title">Mang Đến Những Sản Phẩm Ôm Ấp</p>
-        <p class="news__before__subtitle">Dọn đường cho hành chình cảm xúc của chính bạn!</p>
+        <p class="news__before__title">Tận Hưởng Niềm Vui Của Việc Diện Đồ</p>
+        <p class="news__before__subtitle">Chính là một nghệ thuật đích thực</p>
         <img src="../../assets/images/new1.jpg" class="news__before__thumb">
     </div>
     <div class="news__after">
         <img src="../../assets/images/new2.jpg" class="news__after__thumb">
-        <p class="news__after__title">Cảm Hứng Từ Thiên Nhiên Thay Mùa</p>
-        <p class="news__after__subtitle">Khiến cô gái có những rung động mới</p>
+        <p class="news__after__title">Lắng Nghe Phụ Nữ</p>
+        <p class="news__after__subtitle">Để cho ra các mẫu thiết kế</p>
     </div>
 </section>
 <section class="policy">
@@ -40,7 +40,7 @@
         </div>
         <div class="policy__inner__item">
             <mat-icon>check_circle_outline</mat-icon>
-            <p>Bảo hành sản phẩm trong vòng 30 ngày</p>
+            <p>Bảo hành sản phẩm trong vòng 15 ngày</p>
             <a><p>Tìm hiểu thêm</p></a>
         </div>
     </div>
@@ -51,7 +51,7 @@
         <p class="policy-desktop__item__more">Xem chi tiết</p>
     </div>
     <div class="policy-desktop__item">
-        <p class="policy-desktop__item__title">Bảo hành sản phẩm trong vòng 30 ngày</p>
+        <p class="policy-desktop__item__title">Bảo hành sản phẩm trong vòng 15 ngày</p>
         <p class="policy-desktop__item__more">Xem chi tiết</p>
     </div>    <div class="policy-desktop__item">
         <p class="policy-desktop__item__title">Cam kết sản phẩm như hình</p>
@@ -78,6 +78,22 @@
             </a>
         </ng-template>
     </swiper>
+</section>
+<section class="perks">
+    <div class="perks__inner">
+        <div class="perks__inner__item">
+            <img src="../../assets/vectors/freeshipping.svg" class="perks__inner__item__icon">
+            <p class="perks__inner__item__title">FREESHIP ĐƠN HÀNG TỪ 750K</p>
+        </div>
+        <div class="perks__inner__item">
+            <img src="../../assets/vectors/verified.svg" class="perks__inner__item__icon">
+            <p class="perks__inner__item__title">ĐẢM BẢO SẢN PHẨM NHƯ HÌNH</p>
+        </div>
+        <div class="perks__inner__item perks__inner__item--none-on-mobile">
+            <img src="../../assets/vectors/warranty.svg" class="perks__inner__item__icon">
+            <p class="perks__inner__item__title">BẢO HÀNH SẢN PHẨM 15 NGÀY</p>
+        </div>
+    </div>
 </section>
 <section *ngFor="let category of layout.homepage" class="collection">
     <p class="collection__title">{{category.name | uppercase}}</p>
