@@ -18,6 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CouponComponent } from './coupon/coupon.component';
 
 
 
@@ -31,6 +32,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     GalleryComponent,
     CategoryComponent,
     HomepageComponent,
+    CouponComponent,
   ],
   imports: [
     CommonModule,

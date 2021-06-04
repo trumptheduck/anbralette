@@ -1,0 +1,25 @@
+<div id="coupon" class="view">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<table class="table">
+    <button (click)="this.isWindowOpened = true" class="btn btn-primary">Thêm mã giảm giá</button>
+    <tr>
+        <th>Mã giảm giá</th>
+        <th>Giảm(VND)</th>
+        <th>Xóa</th>
+    </tr>
+    <tr *ngFor="let coupon of couponArray">
+        <td>{{coupon.code}}</td>
+        <td>{{coupon.discount}}VND</td>
+        <td><span (click)="removeCoupon(coupon)" class="material-icons">delete</span></td>
+    </tr>
+</table>
+</div>
+<div class="new" [ngClass]="{'new--visible':isWindowOpened}">
+    <div class="new__inner">
+      <p class="new__inner__title">Thêm mã giảm giá</p>
+      <input [(ngModel)]="couponName" type="text" class="new__inner__input form-control" placeholder="Mã">
+      <input [(ngModel)]="couponDiscount" type="number" class="new__inner__input form-control" placeholder="Số tiền giảm(VND)">
+      <button (click)="addCoupon()" class="btn btn-success new__inner__submit">Lưu</button>
+      <button (click)="isWindowOpened = false" class="btn btn-secondary new__inner__cancel">Hủy bỏ</button>
+    </div>
+  </div>

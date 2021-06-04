@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet"> 
 <div id="orders" class="view">
+    <button (click)="reload$.goto('/admin/dashboard/coupon')" class="btn btn-primary">Quản lý mã giảm giá</button>
     <div id="filter">
         <input type="text" placeholder="Search..." id="search-query" class="form-control datetime">
         <label for="date-from">Từ</label>
@@ -24,5 +25,40 @@
         <input type="checkbox" id="filter-all" name="filter-all">
     </div>
     <table class="table">
+        <tr>
+            <th scope="col">Mã đơn</th>
+            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Tỉnh thành</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Phuơng thức</th>
+            <th scope="col">Ghi chú</th>
+            <th scope="col">Tổng</th>
+            <th scope="col">Thời gian</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Xóa</th>
+            <th scope="col">Chi tiết</th>
+        </tr>
+        <tr *ngFor="let order of orderArray" [ngClass]="getColor(order.status)">
+            <td>{{order._id}}</td>
+            <td>{{order.name}}</td>
+            <td>{{order.phone}}</td>
+            <td>{{order.province}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.payment}}</td>
+            <td>{{order.note}}</td>
+            <td>{{order.total}}VND</td>
+            <td>{{order.date}}</td>
+            <select (change)="changeOrderStatus($event,order)" id="status">
+                <option [selected]="order.status === 'Chưa kiểm duyệt'">Chưa kiểm duyệt</option>
+                <option [selected]="order.status === 'Đã xác nhận'">Đã xác nhận</option>
+                <option [selected]="order.status === 'Đang giao hàng'">Đang giao hàng</option>
+                <option [selected]="order.status === 'Hoàn thành'">Hoàn thành</option>
+                <option [selected]="order.status === 'Hủy bỏ'">Hủy bỏ</option>
+                <option [selected]="order.status === 'Chưa thanh toán'">Chưa thanh toán</option>
+            </select>
+            <td><span (click)="deleteOrder(order)" class="material-icons">delete</span></td>
+            <td><button (click)="reload$.goto('/invoice',{id: order._id})">Xem</button></td>
+        </tr>
     </table>
 </div> 

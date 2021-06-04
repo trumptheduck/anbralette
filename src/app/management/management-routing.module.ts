@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryComponent } from './category/category.component';
+import { CouponComponent } from './coupon/coupon.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ManagementComponent } from './management.component';
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: "homepage",
         component: HomepageComponent,
+      },
+      {
+        path: "coupon",
+        component: CouponComponent,
       },
     ]
   },

@@ -28,6 +28,11 @@
 #orders #filter {
     padding: 20px;
 }
+#orders table tr select { 
+    padding: 0px;
+    margin: 0px;
+    margin-top: 15px;
+}
 #orders table tr.green {
     background-color: lightgreen;
 }
