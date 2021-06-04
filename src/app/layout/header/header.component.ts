@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   isCartOpened: boolean = false;
   cartData: Order[];
   layout: any;
+  searchQuery:string = "";
   constructor(public reload$: ReloadService, private cart$: CartService, private API :ApiService) { 
     this.cartData = [];
     this.layout = {

@@ -1,1 +1,21 @@
-<p>all works!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<section class="pad"></section>
+<section class="folder">
+    <input class="folder__search" [(ngModel)]="inputQuery" (ngModelChange)="onQueryChange()" class="form-control" placeholder="Tìm kiếm...">
+    <p class="folder__parent">TẤT CẢ SẢN PHẨM</p>
+</section>
+<section class="collection">
+    <div class="collection__inner">
+        <div *ngFor="let item of filteredItemArray" class="collection__inner__item">
+            <a routerLink="/display" [queryParams]="{id: item.item_id}">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="collection__inner__item__image">
+                <div class="collection__inner__item__desc">
+                    <p class="collection__inner__item__desc__name">{{item.name}}</p>
+                    <p  *ngIf="item.discount === null||item.discount === item.price" class="collection__inner__item__desc__price">{{item.price | currency_pipe}}</p>
+                    <div *ngIf="item.discount !== null&&item.discount !== item.price" class="collection__inner__item__desc__price collection__inner__item__desc__price--discount"
+                    ><div class="sale">{{item.price | currency_pipe}} <div class="sale__percent">-{{calculateDiscount(item.price,item.discount)}}%</div> </div>{{ item.discount | currency_pipe}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
