@@ -64,7 +64,7 @@
     <button id="save" class="action btn btn-success" [ngClass]="{'none':!isEditing}" (click)="editItem()">Lưu thay đổi</button>
     <button id="delete" class="action btn btn-danger" [ngClass]="{'none':!isEditing}" (click)="deleteItem()">Xóa mặt hàng</button>
 </div>
-<div id="choose-images" [ngClass]="{'active':isSelectingImages}">
+<div *ngIf="isSelectingImages" id="choose-images" [ngClass]="{'active':isSelectingImages}">
     <div id="wrapper">
         <p id="img-title">Thay đổi hình ảnh</p>
         <span id="img-close" class="material-icons" (click)="isSelectingImages = false">close</span>
@@ -72,8 +72,16 @@
             <img *ngFor="let imgsrc of imageSelector_tempArray,index as i" class="item" [src]="back+imgsrc" (click)="selectImages_setIndex(i)" [ngClass]="{'selected':imageSelector_selIndex === i}">
             <button id="add-images" (click)="selectImages_add()" class="btn btn-light item"><span id="add-images-icon" class="material-icons" style="font-size:40px; color:white">add_photo_alternate</span></button>
         </div>
+        <div class="inner__page">
+            <button (click)="image_previousPage()" class="page__previous">Trang trước</button>
+            <select (change)="image_onPageChange($event)">
+                <option *ngFor="let value of ngForLoop(image_maxPage);index as i" [selected]="image_pageIndex === i" [value]="i">Trang {{i+1}}</option>
+            </select>
+            <button (click)="image_nextPage()" class="page__next">Trang tiếp</button>
+        </div>
+        
         <div id="inner-gallery">
-            <img *ngFor="let imgsrc of imageArray,index as i" (click)="selectImages_setGalleryIndex(i)" [src]="back+'/static/contents/'+imgsrc" class="item">
+            <img *ngFor="let imgsrc of image_pageArray,index as i" (click)="selectImages_setGalleryIndex(i)" [src]="back+'/static/contents/'+imgsrc" class="item">
         </div>
         <button id="save-changes" class="btn btn-success" (click)="selectImages_save()">Lưu</button>
         <button id="delete-image" class="btn btn-danger"(click)="selectImages_delete()">Xóa hình ảnh</button>

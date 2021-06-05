@@ -63,7 +63,7 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
-  private getAuth() {
+  public getAuth() {
     return localStorage.getItem('token');
   }
 

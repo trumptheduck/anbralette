@@ -49,20 +49,16 @@ export class DisplayComponent implements OnInit {
     if (window.innerWidth > 800) {
       this.swiperDir = false;
     }
-    console.log(this.swiperDir,window.innerWidth)
     this.route.queryParams
       .subscribe(params => {
-        console.log(params);
         if (params.id === undefined) {
           this.router.navigate(['home']);
         }
         this.API.get(`/apis/item/get/${params.id}`).subscribe((res)=>{
-          console.log(res);
           this.itemData = res;
         })
         this.API.get("/apis/items").subscribe((res)=>{
           this.itemArray = res;
-          console.log(res);
         })
       }
     );

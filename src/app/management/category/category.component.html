@@ -9,6 +9,7 @@
                 {{category.name}}
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
             <button class="btn btn-secondary" (click)="openWindowNewSubCategory(category)">Thêm danh mục phụ</button>
             <button class="btn btn-danger" (click)="deleteCategory(category)">Xóa danh mục</button>
             <mat-expansion-panel  color="primary" *ngFor="let subcategory of category.children">
@@ -17,10 +18,13 @@
                     {{subcategory.name}}
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-                <button class="btn btn-secondary" (click)="openEditItemWindow(subcategory.item,subcategory)">Chọn sản phẩm</button>
-              <button class="btn btn-danger" (click)="deleteSubCategory(category,subcategory)">Xóa danh mục phụ</button>
-                <p *ngFor="let item of subcategory.item">ID:{{item.item_id}}|Tên sản phẩm:{{item.name}}</p>
+                <ng-template matExpansionPanelContent>
+                  <button class="btn btn-secondary" (click)="openEditItemWindow(subcategory.item,subcategory)">Chọn sản phẩm</button>
+                  <button class="btn btn-danger" (click)="deleteSubCategory(category,subcategory)">Xóa danh mục phụ</button>
+                    <p *ngFor="let item of subcategory.item">ID:{{item.item_id}}|Tên sản phẩm:{{item.name}}</p>
+                </ng-template>
               </mat-expansion-panel>
+            </ng-template>
         </mat-expansion-panel>
 </div>
 <div class="cdk-overlay-pane">
@@ -32,7 +36,7 @@
       <button (click)="isWindowOpened = false" class="btn btn-secondary new__inner__cancel">Hủy bỏ</button>
     </div>
   </div>
-  <div class="item" [ngClass]="{'item--visible':isItemWindowOpenned}">
+  <div *ngIf="isItemWindowOpenned" class="item" [ngClass]="{'item--visible':isItemWindowOpenned}">
     <div class="item__wrapper">
       <p class="item__title">Thay đổi sản phẩm</p>
       Sản phẩm hiện tại
@@ -52,6 +56,13 @@
           </table>
         </div>
         <div class="item__wrapper__inner-curr">
+          <div class="page">
+            <button (click)="previousPage()" class="page__previous">Trang trước</button>
+            <select (change)="onPageChange($event)">
+                <option *ngFor="let index of ngForLoop(this.maxPage);index as i" [selected]="pageIndex === i" [value]="i">Trang {{i+1}}</option>
+            </select>
+            <button (click)="nextPage()" class="page__next">Trang tiếp</button>
+        </div>
           <input [(ngModel)]="currModel" (ngModelChange)="updateQueryCurr()" type="text" class="form-control" style="width: 50%;" placeholder="Tìm kiếm">
           <table class="item__wrapper__inner-curr__table table">
             <tr>
@@ -59,7 +70,7 @@
               <th>Tên sản phẩm</th>
               <th>Hành động</th>
             </tr>
-            <tr *ngFor="let item of itemSelector.filtered.curr">
+            <tr *ngFor="let item of pageArray">
               <td>{{item.item_id}}</td>
               <td>{{item.name}}</td>
               <td><button style="margin: 0px;" (click)="addItem(item)">Thêm</button></td>

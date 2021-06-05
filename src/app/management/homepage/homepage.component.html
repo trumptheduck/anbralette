@@ -42,7 +42,7 @@
         </select>
     </mat-expansion-panel>
  </section>
- <div class="category" [ngClass]="{'category--visible':isWindowOpened}">
+ <div *ngIf="isWindowOpened" class="category" [ngClass]="{'category--visible':isWindowOpened}">
     <div class="category__wrapper">
       <p class="category__title">Thay đổi sản phẩm</p>
       Sản phẩm hiện tại

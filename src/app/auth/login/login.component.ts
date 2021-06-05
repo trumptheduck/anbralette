@@ -20,11 +20,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.auth.autoSignIn()
     this.auth.getAuthListener().subscribe(res=>{
-      console.log(res);
     })
   }
   login() {
-    console.log(this.formData.value)
     this.auth.signin({email: this.formData.value.email,password: this.formData.value.password})
   }
   

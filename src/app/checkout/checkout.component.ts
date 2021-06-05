@@ -85,8 +85,6 @@ export class CheckoutComponent implements OnInit {
   checkout() {
     this.formData.patchValue({time: this.getDateTime()})
     if (this.formData.valid) {
-      console.log(this.formData.value)
-      console.log(this.cartData)
       var data = {
         name: this.formData.value.name,
         phone: this.formData.value.phone,
@@ -97,9 +95,7 @@ export class CheckoutComponent implements OnInit {
         payload: this.cartData,
         date: this.formData.value.time,
       }
-      console.log(data);
       this.API.post("/apis/order",data).subscribe((res)=>{
-        console.log(res)
         window.localStorage.removeItem("cart-data")
         this.reload$.goto("/invoice",{id: res._id})
       })

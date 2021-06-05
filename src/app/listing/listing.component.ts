@@ -38,7 +38,6 @@ export class ListingComponent implements OnInit {
     this.getAllCategory(()=>{
       this.route.queryParams
       .subscribe(params => {
-        console.log(params);
         if (params.category === undefined) {
           this.router.navigate(['home']);
         }
@@ -53,7 +52,6 @@ export class ListingComponent implements OnInit {
           this.selectedCat = this.categoryArray.find(cat=>cat._id === params.category)
           this.selectedSubcat = this.selectedCat.children.find(subcat=>subcat._id === params.subcategory)
         }
-        console.log(this.selectedSubcat)
       }
     );
     })

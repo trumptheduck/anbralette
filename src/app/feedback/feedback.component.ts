@@ -20,7 +20,6 @@ export class FeedbackComponent implements OnInit {
   }
   fetchFeedbacks() {
     this.API.get("/apis/feedbacks").subscribe((res)=>{
-      console.log(res);
       this.feedbackArray = res;
     })
   }

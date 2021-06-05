@@ -25,6 +25,34 @@ export class CategoryComponent implements OnInit {
       curr: any[],
     }
   }
+  pageIndex: number=0;
+  maxPage:number;
+  pageArray:Item[];
+  updatePage() {
+    this.updateQueryCurr()
+  }
+  nextPage() {
+    if (this.pageIndex + 1 > this.maxPage) {
+      return
+    } else {
+      this.pageIndex ++
+      console.log(this.pageIndex)
+      this.updatePage()
+    }
+  }
+  onPageChange(event) {
+    this.pageIndex = parseInt(event.target.options[event.target.selectedIndex].value)
+    this.updatePage()
+  }
+  previousPage() {
+    if (this.pageIndex - 1 < 0) {
+      return
+    } else {
+      this.pageIndex --
+      console.log(this.pageIndex)
+      this.updatePage()
+    }
+  }
   selModel:string;
   currModel:string;
   constructor(private API: ApiService) { 
@@ -85,6 +113,7 @@ export class CategoryComponent implements OnInit {
     this.itemSelector.allItem = this.itemArray.slice().filter(n=>!this.itemSelector.selItem.some(item => item._id === n._id));
     this.itemSelector.filtered.sel = this.itemSelector.selItem.slice();
     this.itemSelector.filtered.curr = this.itemSelector.allItem.slice();
+    this.updatePage()
   }
   updateQueryCurr() {
     if (this.currModel !== "") {
@@ -102,6 +131,8 @@ export class CategoryComponent implements OnInit {
     } else {
       this.itemSelector.filtered.curr = this.itemSelector.allItem.slice()
     }
+    this.maxPage = Math.ceil(this.itemSelector.filtered.curr.length/20)
+    this.pageArray = this.itemSelector.filtered.curr.slice(this.pageIndex*20,this.pageIndex*20+20)
   }
   updateQuerySel() {
     if (this.selModel !== "") {
@@ -170,6 +201,9 @@ export class CategoryComponent implements OnInit {
       this.fetchCategoryData();
     })
   }
+  ngForLoop(times:number) {
+    return Array(times).fill(0).map((x,i)=>i);
+   }
   commitChanges():void {
     if (this.apiPath === "/apis/category") {
       this.API.post(this.apiPath,{

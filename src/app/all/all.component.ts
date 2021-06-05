@@ -40,10 +40,8 @@ export class AllComponent implements OnInit {
   fetchItemData():void {
     this.API.get("/apis/items").subscribe((res)=>{
       this.itemArray = res;
-      console.log(res)
       this.route.queryParams
       .subscribe(params => {
-        console.log(params);
         if (params.q !== undefined) {
           this.filterItem(params.q);
           this.inputQuery = params.q

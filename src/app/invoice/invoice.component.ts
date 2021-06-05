@@ -31,7 +31,6 @@ export class InvoiceComponent implements OnInit {
   }
   fetchOrder() {
     this.route.queryParams.subscribe(params => {
-        console.log(params);
         if (params.id === undefined) {
           this.router.navigate(['home']);
         } else {
@@ -39,7 +38,6 @@ export class InvoiceComponent implements OnInit {
             if (res === null) {
               this.router.navigate(['home']);
             } else {
-              console.log(res)
               this.orderData = res
             }
           })

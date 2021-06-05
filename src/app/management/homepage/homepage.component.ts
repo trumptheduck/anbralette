@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({

@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.cart$.cartObservable.subscribe((data)=>{
       this.cartData = data;
-      console.log("cartCmp:",data)
       this.isCartOpened = true;
     })
     this.getLayout()

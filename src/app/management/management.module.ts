@@ -20,6 +20,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CouponComponent } from './coupon/coupon.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 
@@ -44,7 +45,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     FormsModule,
     MatIconModule,
     MatExpansionModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ScrollingModule
   ],
 
 })

@@ -16,6 +16,9 @@ export class ProductComponent implements OnInit {
   pageIndex: number=0;
   maxPage:number;
   pageArray:Item[];
+  image_pageIndex: number=0;
+  image_maxPage:number = 0;
+  image_pageArray:string[];
   setHeight(editor) {
     editor.editing.view.change((writer) => {
       writer.setStyle(
@@ -48,6 +51,31 @@ export class ProductComponent implements OnInit {
       this.pageIndex --
       console.log(this.pageIndex)
       this.updatePage()
+    }
+  }
+  image_updatePage() {
+    this.image_pageArray = this.imageArray.slice(this.image_pageIndex*20,this.image_pageIndex*20+20)
+  }
+  image_nextPage() {
+    if (this.image_pageIndex + 1 > this.image_maxPage) {
+      return
+    } else {
+      this.image_pageIndex ++
+      console.log(this.image_pageIndex)
+      this.image_updatePage()
+    }
+  }
+  image_onPageChange(event) {
+    this.image_pageIndex = parseInt(event.target.options[event.target.selectedIndex].value)
+    this.image_updatePage()
+  }
+  image_previousPage() {
+    if (this.image_pageIndex - 1 < 0) {
+      return
+    } else {
+      this.image_pageIndex --
+      console.log(this.image_pageIndex)
+      this.image_updatePage()
     }
   }
   back:string = environment.api_url;
@@ -127,6 +155,9 @@ export class ProductComponent implements OnInit {
       if (isExisted !== undefined) {
         this.imageArray.splice(this.imageArray.indexOf(isExisted),1) 
       }
+      this.image_maxPage = Math.ceil(this.imageArray.length/20)
+      console.log(this.image_maxPage)
+      this.image_updatePage()
     })
   }
   openItemDrawer(item:Item): void {
