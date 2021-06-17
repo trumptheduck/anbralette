@@ -88,7 +88,7 @@ export class HomepageComponent implements OnInit {
   }
   save() {
     if (typeof(this.tempLayout.weekly) !== "string") {
-      this.tempLayout.weekly = this.tempLayout.weekly._id;
+      this.tempLayout.weekly = this.tempLayout.weekly?._id;
     }
     var homepageArr = [];
     this.tempLayout.homepage.forEach(data => {

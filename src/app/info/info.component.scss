@@ -1,0 +1,24 @@
+.pad {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(78, 78, 78);
+}
+.main {
+    font-family: CocoGothic;
+    padding: 30px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    font-size: 15px;
+}
+@media screen and (min-width: 500px) { 
+.pad {
+    height: 100px;
+}
+.main {
+    font-family: CocoGothic;
+    padding: 30px;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    font-size: 15px;
+}
+}

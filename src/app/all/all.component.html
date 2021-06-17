@@ -8,7 +8,7 @@
     <div class="collection__inner">
         <div *ngFor="let item of filteredItemArray" class="collection__inner__item">
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
-                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="collection__inner__item__image">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined" loading="lazy" [src]="back + item.images[0]" class="collection__inner__item__image">
                 <div class="collection__inner__item__desc">
                     <p class="collection__inner__item__desc__name">{{item.name}}</p>
                     <p  *ngIf="item.discount === null||item.discount === item.price" class="collection__inner__item__desc__price">{{item.price | currency_pipe}}</p>

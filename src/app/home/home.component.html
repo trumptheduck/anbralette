@@ -20,8 +20,8 @@
 </section>
 <section class="news">
     <div class="news__before">
-        <p class="news__before__title">Tận Hưởng Niềm Vui Của Việc Diện Đồ</p>
-        <p class="news__before__subtitle">Chính là một nghệ thuật đích thực</p>
+        <p class="news__before__title">Diện Nội Y Đẹp</p>
+        <p class="news__before__subtitle">Mang tâm thế đẹp</p>
         <img src="../../assets/images/new1.jpg" class="news__before__thumb">
     </div>
     <div class="news__after">
@@ -67,7 +67,7 @@
         <ng-template *ngFor="let item of getItemArray(layout.weekly)" swiperSlide>
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
                 <div class="weekly__swiper__item">
-                    <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="weekly__swiper__item__image">
+                    <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined" loading="lazy" [src]="back + item.images[0]" class="weekly__swiper__item__image">
                     <div class="weekly__swiper__item__desc">
                         <p class="weekly__swiper__item__desc__name">{{item.name}}</p>
                         <p  *ngIf="item.discount === null||item.discount === item.price" class="weekly__swiper__item__desc__price">{{item.price | currency_pipe}}</p>
@@ -100,7 +100,7 @@
     <div *ngIf="getItemArray(category) !== undefined" class="collection__inner">
         <div *ngFor="let item of getItemArray(category)" class="collection__inner__item">
             <a routerLink="/display" [queryParams]="{id: item.item_id}">
-                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" class="collection__inner__item__image">
+                <img *ngIf="item?.images?.length > 0&&item?.images?.length !== undefined"  [src]="back + item.images[0]" loading="lazy" class="collection__inner__item__image">
                 <div class="collection__inner__item__desc">
                     <p class="collection__inner__item__desc__name">{{item.name}}</p>
                     <p  *ngIf="item.discount === null||item.discount === item.price" class="collection__inner__item__desc__price">{{item.price | currency_pipe}}</p>

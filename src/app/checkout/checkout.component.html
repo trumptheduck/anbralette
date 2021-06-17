@@ -23,7 +23,7 @@
                 <p class="info__title">THÔNG TIN THANH TOÁN</p>
                 <form [formGroup]="formData">
                     <input formControlName="name" type="text" placeholder="Ví dụ: Nguyễn Văn A" class="info__name form-control">
-                    <input formControlName="phone" type="text" placeholder="Ví dụ: 0987654321" class="info__phone form-control">
+                    <input formControlName="phone" (change)="validatePhoneNUmber()" type="text" placeholder="Ví dụ: 0987654321" class="info__phone form-control">
                     <input formControlName="province" type="text" hidden>
                     <input formControlName="time" type="text" hidden>
                     <input formControlName="coupon" type="text" hidden>

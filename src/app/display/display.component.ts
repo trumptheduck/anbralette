@@ -8,6 +8,7 @@ import { Item } from '../core/models/item.model';
 import { CartService } from '../core/services/cart.service';
 import { Order } from '../core/models/order.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SEOService } from '../core/services/seo.service';
 
 
 
@@ -30,7 +31,8 @@ export class DisplayComponent implements OnInit {
      public router: Router,
      public reload$: ReloadService,
      private cart$: CartService,
-     private _snackBar: MatSnackBar) { 
+     private _snackBar: MatSnackBar,
+     private seo$: SEOService) { 
       this.itemSize = "";
       this.sizeIndex = -1;
     this.itemData = {
@@ -56,6 +58,15 @@ export class DisplayComponent implements OnInit {
         }
         this.API.get(`/apis/item/get/${params.id}`).subscribe((res)=>{
           this.itemData = res;
+          this.seo$.updateTitle(`${this.itemData.name}-An Bralette`)
+          this.seo$.updateDescription(this.itemData.description)
+          this.seo$.updateOpenGraph({
+            url: window.location.href,
+            type: 'website',
+            title: `${this.itemData.name}-An Bralette`,
+            description: this.itemData.description,
+            image: this.itemData.images[0]
+          })
         })
         this.API.get("/apis/items").subscribe((res)=>{
           this.itemArray = res;

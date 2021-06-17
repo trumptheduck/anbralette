@@ -199,7 +199,7 @@ export class ProductComponent implements OnInit {
   selectImages_setGalleryIndex(index:number):void {
     if (this.imageSelector_selIndex !== -1) {
       console.log(this.imageArray[index])
-      this.imageSelector_tempArray.splice(this.imageSelector_selIndex,1,`/static/contents/${this.imageArray[index]}`)
+      this.imageSelector_tempArray.splice(this.imageSelector_selIndex,1,`/static/contents/${this.image_pageArray[index]}`)
       this.imageSelector_selIndex = -1;
     }
   }

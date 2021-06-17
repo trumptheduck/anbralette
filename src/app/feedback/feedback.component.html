@@ -3,12 +3,6 @@
     <p class="main__title">#Feedback An Bralette</p>
     <div class="main__inner">
         <div *ngFor="let feedback of feedbackArray" class="main__inner__item" [style]="'background-image:url('+back+feedback.image +')'">
-            <div class="main__inner__item__affiliated">
-                <p>1 SẢN PHẨM</p>
-                <div class="main__inner__item__affiliated__inner">
-                    <img (click)="reload$.goto('/display',{id: feedback.item.item_id})" [src]="back+feedback.item.images[0]">
-                </div>
-            </div>
         </div>
     </div>
 </section>

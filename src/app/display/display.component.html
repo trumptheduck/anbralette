@@ -30,6 +30,8 @@
 <section class="description">
     <p class="description__name">{{itemData.name}}</p>
     <p class="description__price">{{itemData.price | currency_pipe}}</p>
+    <p *ngIf="itemData.instock !== 'false'" style="color: green;">Còn hàng</p>
+    <p *ngIf="itemData.instock === 'false'" style="color: red;">Hết hàng</p>
     <div class="description__sizes">
         <p class="description__sizes__title">Sizes:</p> 
         <div matRipple *ngFor="let size of itemData.sizes; index as i" [ngClass]="{'description__sizes__size--selected':this.sizeIndex === i}" (click)="chooseSize(size,i)" class="description__sizes__size">{{size}}</div>

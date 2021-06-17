@@ -35,10 +35,10 @@
         <p>Chọn một danh mục để hiển thị ở mục Ưu đãi hàng tuần</p>
         <select *ngIf="tempLayout.weekly === null" class="form-control" (change)="onOptionChange($event)">
             <option selected [value]="">Trống</option>
-            <option *ngFor="let category of categoryArray" [value]="category._id">{{category.name}}</option>
+            <option *ngFor="let category of categoryArray" [value]="category?._id">{{category.name}}</option>
         </select>
         <select *ngIf="tempLayout.weekly !== null" class="form-control" (change)="onOptionChange($event)">
-            <option *ngFor="let category of categoryArray" [selected]="category._id === tempLayout.weekly._id" [value]="category._id">{{category.name}}</option>
+            <option *ngFor="let category of categoryArray" [selected]="category?._id === tempLayout.weekly?._id" [value]="category?._id">{{category.name}}</option>
         </select>
     </mat-expansion-panel>
  </section>

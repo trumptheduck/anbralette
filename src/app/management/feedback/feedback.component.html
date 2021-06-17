@@ -8,7 +8,7 @@
             <th>Xóa</th>
         </tr>
         <tr *ngFor="let feedback of feedbackArray">
-            <td>{{feedback.item.name}}</td>
+            <td></td>
             <td><img width="100" height="100" [src]="back + feedback.image"></td>
             <td><span (click)="removeFeedback(feedback)" class="material-icons">delete</span></td>
         </tr>

@@ -9,6 +9,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { DisplayComponent } from './display/display.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeComponent } from './home/home.component';
+import { InfoComponent } from './info/info.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ListingComponent } from './listing/listing.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: "feedback",
         component: FeedbackComponent
+      },
+      {
+        path: "info",
+        component: InfoComponent
       },
     ]
   },
